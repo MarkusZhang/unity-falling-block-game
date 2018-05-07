@@ -4,9 +4,11 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - FallingBlockPrefab
   - projectile
   - bullet
+  - player
+  - falling-block
+  - weapon
   layers:
   - Default
   - TransparentFX
