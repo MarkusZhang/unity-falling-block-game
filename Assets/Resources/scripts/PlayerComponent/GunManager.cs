@@ -35,7 +35,6 @@ public class GunManager : MonoBehaviour {
 			if (allTypes[i] == currentGunType) {
 				GunType newGunType = allTypes [(i + 1) % allTypes.Length];
 				SwitchGun (newGunType);
-				print ("Switched to " + newGunType);
 				break;
 			}
 		}

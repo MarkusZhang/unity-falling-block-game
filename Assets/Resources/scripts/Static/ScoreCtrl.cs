@@ -33,6 +33,14 @@ public static class ScoreCtrl{
 	public static int GetLevel(){
 		return currentLevel;
 	}
+
+	// this should be called when game is started over again
+	public static void Reset(){
+		currentLevel = 0;
+		score = 0;
+		OnScoreChange = null;
+		OnLevelChange = null;
+	}
 }
 
 

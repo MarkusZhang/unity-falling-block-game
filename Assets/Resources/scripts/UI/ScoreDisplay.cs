@@ -9,6 +9,7 @@ public class ScoreDisplay : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
+		print ("ScoreDisplay: Start called");
 		if (pointsUI == null) {
 			pointsUI = GameObject.Find ("score-display").GetComponent<Text>();
 		}

@@ -43,4 +43,9 @@ public static class WeaponStoreCtrl {
 			return (int)storedWeapons [type];
 		}
 	}
+
+	public static void Reset(){
+		storedWeapons = new Hashtable();
+		OnWeaponStoreChange = null;
+	}
 }

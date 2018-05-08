@@ -40,5 +40,4 @@ public class WeaponStoreDisplay : MonoBehaviour {
 		Text countText = ui.transform.Find ("count").gameObject.GetComponent<Text>();
 		countText.text = "x" + count;
 	}
-
 }

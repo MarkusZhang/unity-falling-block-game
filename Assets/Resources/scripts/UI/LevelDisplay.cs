@@ -19,4 +19,5 @@ public class LevelDisplay : MonoBehaviour {
 		int level = ScoreCtrl.GetLevel ();
 		levelUI.text = "L " + level;
 	}
+
 }

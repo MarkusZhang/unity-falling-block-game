@@ -15,8 +15,14 @@ public class GameWin : MonoBehaviour {
 
 	void Update(){
 		if (Input.GetKeyDown (KeyCode.Space)) {
+			ResetStaticComponents ();
 			SceneManager.LoadScene ("play-scene");
 		}
+	}
+
+	void ResetStaticComponents(){
+		ScoreCtrl.Reset ();
+		WeaponStoreCtrl.Reset ();
 	}
 
 }
