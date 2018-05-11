@@ -5,13 +5,13 @@ using UnityEngine;
 public class Player : LivingEntity {
 
 	private float speed = 7;
-	private float screenHalfWidth;
 
 	bool disabled = false;
 
-	GunManager gunManager;
+	public GunManager gunManager;
 	WeaponDispatcher weaponDispatcher;
 	Color originalColor;
+	Utils utils;
 
 	// Use this for initialization
 	protected override void Start () {
@@ -22,9 +22,10 @@ public class Player : LivingEntity {
 		gunManager = gameObject.AddComponent<GunManager> ();
 		gunManager.Init (transform);
 
+		utils = gameObject.AddComponent<Utils> ();
+
 		ScoreCtrl.OnLevelChange += OnLevelUp;
 
-		screenHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
 		originalColor = GetComponent<SpriteRenderer> ().color;
 	}
 	
@@ -37,19 +38,15 @@ public class Player : LivingEntity {
 
 		// get left-right moving command
 		float inputX = Input.GetAxisRaw ("Horizontal");
-		float velocity = inputX * speed;
-		transform.Translate (Vector2.right * velocity * Time.deltaTime);
-
-		// wrap around the scene
-		if (transform.position.x < -screenHalfWidth) {
-			transform.position = new Vector2(screenHalfWidth,transform.position.y);
-		} else if (transform.position.x > screenHalfWidth) {
-			transform.position = new Vector2(- screenHalfWidth, transform.position.y);
+		float inputY = Input.GetAxisRaw("Vertical");
+		Vector2 dirToMove = new Vector2 (inputX, inputY).normalized;
+		Vector2 myPosition = new Vector2 (transform.position.x, transform.position.y);
+		if (!utils.IsOffScreen (myPosition + dirToMove * speed * Time.deltaTime)) {
+			transform.Translate (dirToMove * speed * Time.deltaTime);
 		}
 
 		// get shooting bullet command
-		float inputY = Input.GetAxisRaw("Vertical");
-		if (inputY > 0) {
+		if (Input.GetKey(KeyCode.Space)) {
 			gunManager.Shoot ();
 		}
 
@@ -79,6 +76,7 @@ public class Player : LivingEntity {
 
 	public void GetWeapon(WeaponType type){
 		WeaponStoreCtrl.StoreWeapon (type, 1);
+		TakeAndDispatchWeapon (type);
 	}
 
 	public override void TakeDamage(int damage){

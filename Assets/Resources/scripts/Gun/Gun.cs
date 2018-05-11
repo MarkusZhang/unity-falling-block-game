@@ -50,5 +50,6 @@ public class Gun : MonoBehaviour {
 	public void ChangeShootSpeedByRatio(float ratio){
 		Debug.Assert (ratio > 0, "ratio must be positive");
 		shootInterval = defaultShootInterval / ratio;
+		print ("shootInterval is " + shootInterval);
 	}
 }

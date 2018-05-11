@@ -2,16 +2,28 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//TODO: change this to a singleton class
 public class GunManager : MonoBehaviour {
 
+	public static GunManager manager; // singleton
+
 	// about current gun
-	Gun currentGun;
-	GunType currentGunType;
-	GameObject currentGunObject;
+	public Gun currentGun;
+	public GunType currentGunType;
+	public GameObject currentGunObject;
 
 	Dictionary<GunType,int> allGuns;
 	Transform parentTransform;
 	float relativeShootSpeed = 1;
+
+	public event System.Action OnShoot;
+	public event System.Action OnSwitchGun;
+
+	public GunManager GetGunManager(){
+		if (manager == null) {
+			manager = new GunManager ();
+		}
+	}
 
 	public void Init(Transform playerTransform){
 		parentTransform = playerTransform;
@@ -25,6 +37,9 @@ public class GunManager : MonoBehaviour {
 	
 	public void Shoot(){
 		currentGun.Shoot ();
+		if (OnShoot != null) {
+			OnShoot ();
+		}
 	}
 
 	// switch to next gun in `allGuns`
@@ -53,12 +68,20 @@ public class GunManager : MonoBehaviour {
 			allGuns.TryGetValue(type, out numShotsLeft);
 			currentGun.SetNumShotLeft (numShotsLeft);
 			currentGun.OnShootLimitReached += OnShootLimitReached;
+
+			if (OnSwitchGun != null) {
+				OnSwitchGun ();
+			}
 		}
 	}
 
 	void OnShootLimitReached(){
+		Destroy (currentGunObject);
 		allGuns.Remove (currentGunType);
 		SetCurrentGun(GunType.Default);
+		if (OnSwitchGun != null) {
+			OnSwitchGun ();
+		}
 	}
 
 	void SetCurrentGun(GunType type){
