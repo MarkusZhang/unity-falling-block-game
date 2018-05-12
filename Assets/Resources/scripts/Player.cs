@@ -8,7 +8,7 @@ public class Player : LivingEntity {
 
 	bool disabled = false;
 
-	public GunManager gunManager;
+	GunManager gunManager;
 	WeaponDispatcher weaponDispatcher;
 	Color originalColor;
 	Utils utils;
@@ -19,8 +19,7 @@ public class Player : LivingEntity {
 		weaponDispatcher = gameObject.AddComponent<WeaponDispatcher>();
 		weaponDispatcher.Init ();
 
-		gunManager = gameObject.AddComponent<GunManager> ();
-		gunManager.Init (transform);
+		gunManager = gameObject.AddComponent<GunManager>();
 
 		utils = gameObject.AddComponent<Utils> ();
 

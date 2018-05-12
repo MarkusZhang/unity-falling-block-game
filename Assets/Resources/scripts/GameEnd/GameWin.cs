@@ -23,6 +23,7 @@ public class GameWin : MonoBehaviour {
 	void ResetStaticComponents(){
 		ScoreCtrl.Reset ();
 		WeaponStoreCtrl.Reset ();
+		GunStore.Reset ();
 	}
 
 }

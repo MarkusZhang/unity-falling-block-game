@@ -19,8 +19,9 @@ public class Gun : MonoBehaviour {
 		lastShootTime = Time.time;
 		shootInterval = defaultShootInterval;
 	}
-	
-	public void Shoot(){
+
+	// return true if the shot is made
+	public bool Shoot(){
 		if (Time.time - lastShootTime > shootInterval) {
 			lastShootTime = Time.time;
 			foreach (Transform muzzle in muzzles) {
@@ -36,6 +37,10 @@ public class Gun : MonoBehaviour {
 					OnShootLimitReached ();
 				}
 			}
+
+			return true;
+		} else {
+			return false;
 		}
 	}
 
@@ -50,6 +55,5 @@ public class Gun : MonoBehaviour {
 	public void ChangeShootSpeedByRatio(float ratio){
 		Debug.Assert (ratio > 0, "ratio must be positive");
 		shootInterval = defaultShootInterval / ratio;
-		print ("shootInterval is " + shootInterval);
 	}
 }

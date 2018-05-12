@@ -8,32 +8,26 @@ public class GunStatusDisplay : MonoBehaviour {
 	public GameObject gunIcon;
 	public Text numBulletsRemaining;
 
-	GunManager gunManager;
-
 	// attach listener
 	void Start () {
-		Player p = GameObject.Find ("player").GetComponent<Player> ();
-		gunManager = GameObject.Find ("player").GetComponent<Player> ().gunManager;
-		gunManager.OnShoot += UpdateBulletsRemaining;
-		gunManager.OnSwitchGun += UpdateIcon;
-		gunManager.OnSwitchGun += UpdateBulletsRemaining;
-		print ("GunStatusDisplay.Start() finishes");
+		GunStore.OnConsumeBullet += UpdateBulletsRemaining;
+		GunStore.OnSwitchGun += UpdateIcon;
+		GunStore.OnSwitchGun += UpdateBulletsRemaining;
 	}
 	
 	// Update is called once per frame
 	void UpdateIcon () {
-		GunType type = gunManager.currentGunType;
+		GunType type = GunStore.currentGunType;
 		string iconImageName = TypeToImageName (type);
 		gunIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>(iconImageName);
 	}
 
 	void UpdateBulletsRemaining(){
-		GunType type = gunManager.currentGunType;
-		if (type == GunType.Default) {
+		bool isBulletInfinite = GunStore.numBulletsLeft < 0;
+		if (isBulletInfinite) {
 			numBulletsRemaining.text = "";
 		} else {
-			Gun gun = gunManager.currentGun;
-			numBulletsRemaining.text = "" + gun.GetNumShotsLeft ();
+			numBulletsRemaining.text = "" + GunStore.numBulletsLeft;
 		}
 
 	}
@@ -43,8 +37,21 @@ public class GunStatusDisplay : MonoBehaviour {
 			return "images/icons/icon-default-gun";
 		} else if (type == GunType.Spray) {
 			return "images/icons/icon-spray-gun";
-		} else { // Wide
+		} else if (type == GunType.Wide) {
 			return "images/icons/icon-wide-gun";
+		} else if (type == GunType.Ring) {
+			return "images/icons/icon-ring-gun";
+		} else {
+			throw new UnityException (type.ToString () + " is not a valid gun type");
 		}
 	}
+
+	void OnDestroy(){
+		GunStore.OnConsumeBullet -= UpdateBulletsRemaining;
+		GunStore.OnSwitchGun -= UpdateIcon;
+		GunStore.OnSwitchGun -= UpdateBulletsRemaining;
+	}
+
 }
+
+

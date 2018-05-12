@@ -5,5 +5,6 @@ using UnityEngine;
 public enum GunType{
 	Default,
 	Spray,
-	Wide
+	Wide,
+	Ring
 }
