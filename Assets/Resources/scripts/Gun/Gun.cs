@@ -17,7 +17,10 @@ public class Gun : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		lastShootTime = Time.time;
-		shootInterval = defaultShootInterval;
+		bool isShootIntervalAssigned = shootInterval != 0;
+		if (!isShootIntervalAssigned) {
+			shootInterval = defaultShootInterval;
+		}
 	}
 
 	// return true if the shot is made
