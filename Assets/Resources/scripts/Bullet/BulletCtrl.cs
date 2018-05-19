@@ -5,6 +5,8 @@ using UnityEngine;
 public class BulletCtrl : MonoBehaviour {
 
 	public float speed = 15;
+	public GameObject explodeEffect;
+
 
 	// Use this for initialization
 	void Start () {

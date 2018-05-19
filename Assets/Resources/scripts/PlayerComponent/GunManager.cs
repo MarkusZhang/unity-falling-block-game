@@ -15,7 +15,7 @@ public class GunManager : MonoBehaviour {
 
 	void Start(){
 		GunStore.AddGun (GunType.Default, -1);
-		GunStore.AddGun (GunType.Ring, -1);
+		GunStore.AddGun (GunType.Ring, 100);
 		GunStore.AddGun (GunType.Spray, 100);
 		GunStore.AddGun (GunType.Wide, 100);
 		// use default gun

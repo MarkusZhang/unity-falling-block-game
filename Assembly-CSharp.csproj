@@ -52,11 +52,14 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\scenes\NewBehaviourScript.cs" />
-     <Compile Include="Assets\Resources\scripts\Boss.cs" />
      <Compile Include="Assets\Resources\scripts\Bullet\BulletCtrl.cs" />
      <Compile Include="Assets\Resources\scripts\Bullet\EnemyBullet.cs" />
      <Compile Include="Assets\Resources\scripts\Bullet\RingBullet.cs" />
-     <Compile Include="Assets\Resources\scripts\FallingBlock.cs" />
+     <Compile Include="Assets\Resources\scripts\ChangingWeaponBlock.cs" />
+     <Compile Include="Assets\Resources\scripts\Enemy\AlienShip.cs" />
+     <Compile Include="Assets\Resources\scripts\Enemy\Boss.cs" />
+     <Compile Include="Assets\Resources\scripts\Enemy\FallingBlock.cs" />
+     <Compile Include="Assets\Resources\scripts\ExplosionAnimation.cs" />
      <Compile Include="Assets\Resources\scripts\FlashOver.cs" />
      <Compile Include="Assets\Resources\scripts\GameEnd\GameWin.cs" />
      <Compile Include="Assets\Resources\scripts\GameFlowManager.cs" />
@@ -67,7 +70,6 @@
      <Compile Include="Assets\Resources\scripts\Player.cs" />
      <Compile Include="Assets\Resources\scripts\PlayerComponent\GunManager.cs" />
      <Compile Include="Assets\Resources\scripts\PlayerComponent\WeaponDispatcher.cs" />
-     <Compile Include="Assets\Resources\scripts\QiangGe.cs" />
      <Compile Include="Assets\Resources\scripts\Spawner.cs" />
      <Compile Include="Assets\Resources\scripts\Static\Difficulty.cs" />
      <Compile Include="Assets\Resources\scripts\Static\GunStore.cs" />

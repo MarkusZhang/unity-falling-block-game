@@ -7,8 +7,9 @@ TagManager:
   - projectile
   - bullet
   - player
-  - falling-block
   - weapon
+  - ui-ring-protector
+  - falling-block
   layers:
   - Default
   - TransparentFX

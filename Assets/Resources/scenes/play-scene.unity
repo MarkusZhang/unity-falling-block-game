@@ -350,7 +350,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 87b005d6d4946472088c539fa7bee95d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bossStageTime: 20
+  bossStageTime: 40
   bossPrefab: {fileID: 1792093013366176, guid: b5c71e24375b646a6ab1a78162fc65ca, type: 2}
 --- !u!4 &158646875
 Transform:

@@ -32,6 +32,6 @@ public class RingProtector : TimedWeapon {
 	}
 
 	protected override float TotalAliveTime(){
-		return 10f;
+		return 15f;
 	}
 }

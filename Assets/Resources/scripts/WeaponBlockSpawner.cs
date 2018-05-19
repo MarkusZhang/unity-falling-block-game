@@ -25,15 +25,16 @@ public class WeaponBlockSpawner : MonoBehaviour {
 	void Update () {
 		if (CanSpawnNextWeapon()) {
 			// spawn new weapon block
-			WeaponType type;
-			if (spawnTypes [nextSpawnTimeIndex] == null) {
-				type = GetRandomWeaponType ();
-			} else {
-				type = (WeaponType)spawnTypes [nextSpawnTimeIndex];
-			}
-			string prefabName = GetPrefabName (type);
-			GameObject prefab = Resources.Load ("Prefabs/weapon-blocks/" + prefabName) as GameObject;
-			Debug.Assert (prefab != null, "prefab: '" + prefabName + "' is null");
+//			WeaponType type;
+//			if (spawnTypes [nextSpawnTimeIndex] == null) {
+//				type = GetRandomWeaponType ();
+//			} else {
+//				type = (WeaponType)spawnTypes [nextSpawnTimeIndex];
+//			}
+//			string prefabName = GetPrefabName (type);
+//			GameObject prefab = Resources.Load ("Prefabs/weapon-blocks/" + prefabName) as GameObject;
+//			Debug.Assert (prefab != null, "prefab: '" + prefabName + "' is null");
+			GameObject prefab = Resources.Load ("Prefabs/changing-weapon-block") as GameObject;
 			Vector2 position = new Vector2(Random.Range(-screenHalfWidth.x,screenHalfWidth.x),screenHalfWidth.y);
 			Instantiate(prefab, position, Quaternion.identity);
 
