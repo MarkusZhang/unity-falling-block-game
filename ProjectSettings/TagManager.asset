@@ -13,6 +13,7 @@ TagManager:
   - enemy:falling-block
   - enemy:boss
   - bullet
+  - enemy:alien-ship
   layers:
   - Default
   - TransparentFX

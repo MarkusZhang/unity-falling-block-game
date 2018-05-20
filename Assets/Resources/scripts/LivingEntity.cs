@@ -28,10 +28,10 @@ public class LivingEntity : MonoBehaviour {
 
 	public virtual void Die() {
 		dead = true;
-		GameObject.Destroy (gameObject);
 		if (OnDeath != null) {
 			OnDeath();
 		}
+		GameObject.Destroy (gameObject);
 	}
 
 	public int GetHealth(){

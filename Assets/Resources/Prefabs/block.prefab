@@ -26,7 +26,7 @@ GameObject:
   - component: {fileID: 114352740739664606}
   m_Layer: 0
   m_Name: block
-  m_TagString: falling-block
+  m_TagString: enemy:falling-block
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

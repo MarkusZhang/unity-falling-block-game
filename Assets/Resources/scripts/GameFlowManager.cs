@@ -11,16 +11,23 @@ enum State{
 
 public class GameFlowManager : MonoBehaviour {
 
+	public float[] alienShipTimes;
 	public float bossStageTime;
 	public GameObject bossPrefab;
+	public GameObject alienshipPrefab;
 
+	int alienShipIdx = 0;
 	float startTime;
 	State currentState;
+	float screenHalfWidth;
+	float screenHalfHeight;
 
 	// Use this for initialization
 	void Start () {
 		startTime = Time.time;
 		currentState = State.Start;
+		screenHalfHeight = Camera.main.orthographicSize;
+		screenHalfWidth = Camera.main.aspect * screenHalfHeight;
 		GameObject.FindGameObjectWithTag ("player").GetComponent<Player> ().OnDeath += OnPlayerDeath;
 	}
 	
@@ -35,15 +42,31 @@ public class GameFlowManager : MonoBehaviour {
 			GameObject boss = Instantiate(bossPrefab);
 			boss.GetComponent<LivingEntity> ().OnDeath += OnBossDeath;
 		}
+
+		// spawn alien ship
+		if (alienShipIdx < alienShipTimes.Length && Time.time - startTime >= alienShipTimes [alienShipIdx]) {
+			alienShipIdx++;
+			Vector2 position = new Vector2(Random.Range(-screenHalfWidth,screenHalfWidth),screenHalfHeight + alienshipPrefab.transform.localScale.y);
+			GameObject ship = Instantiate (alienshipPrefab, position, Quaternion.identity);
+			ship.GetComponent<LivingEntity> ().OnDeath += OnAlienShipDeath;
+		}
+	}
+
+	void OnAlienShipDeath(){
+		//TODO: generate rewards
 	}
 
 	void OnBossDeath(){
-		currentState = State.End;
-		SceneManager.LoadScene ("game-win");
+		StartCoroutine (DelayAndSwitchScene ("game-win", 2));
 	}
 
 	void OnPlayerDeath(){
+		StartCoroutine (DelayAndSwitchScene ("game-over", 2));
+	}
+
+	IEnumerator DelayAndSwitchScene(string sceneName,float seconds){
+		yield return new WaitForSeconds (seconds);
 		currentState = State.End;
-		SceneManager.LoadScene ("game-over");
+		SceneManager.LoadScene (sceneName);
 	}
 }

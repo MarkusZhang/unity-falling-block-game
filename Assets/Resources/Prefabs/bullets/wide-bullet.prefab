@@ -20,9 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4937672059345932}
   - component: {fileID: 212705163112702900}
-  - component: {fileID: 114559789087382718}
   - component: {fileID: 50753194410962666}
   - component: {fileID: 61469922361644898}
+  - component: {fileID: 114966834010574672}
+  - component: {fileID: 114631368419232866}
   m_Layer: 0
   m_Name: wide-bullet
   m_TagString: player:bullet
@@ -88,7 +89,7 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 6.17, y: 2.61}
   m_EdgeRadius: 0
---- !u!114 &114559789087382718
+--- !u!114 &114631368419232866
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -96,10 +97,30 @@ MonoBehaviour:
   m_GameObject: {fileID: 1201586432063694}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 085f2adf5d7b3f447a0d22ba4149c5fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 332557449d26644cbad52fc9c0f1e83f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 20
+  speed: 15
+--- !u!114 &114966834010574672
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1201586432063694}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  limitedNumDamages: 1
+  numDamages: 3
+  targetTags:
+  - enemy
+  exceptTags:
+  - bullet
+  destroyEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
+    type: 2}
 --- !u!212 &212705163112702900
 SpriteRenderer:
   m_ObjectHideFlags: 1

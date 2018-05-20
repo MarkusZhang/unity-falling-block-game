@@ -97,7 +97,8 @@ MonoBehaviour:
   - player
   exceptTags:
   - bullet
-  destroyEffect: {fileID: 0}
+  destroyEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
+    type: 2}
 --- !u!114 &114600642499933574
 MonoBehaviour:
   m_ObjectHideFlags: 1

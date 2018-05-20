@@ -112,6 +112,7 @@ GameObject:
   - component: {fileID: 212340661174613262}
   - component: {fileID: 114263164343195486}
   - component: {fileID: 60691891553521216}
+  - component: {fileID: 114966097707474512}
   m_Layer: 0
   m_Name: boss
   m_TagString: enemy:boss
@@ -864,6 +865,20 @@ MonoBehaviour:
   bulletPrefab: {fileID: 1093489154766884, guid: b907535cf7bff4159bb6523dde79ac81,
     type: 2}
   hitEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035, type: 2}
+--- !u!114 &114966097707474512
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792093013366176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6139dc2b89b37484f8f283d9dd83de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 1909678812610660, guid: ad57608c300bc4e24be8819f2e6ecf70,
+    type: 2}
+  animationLength: 1
 --- !u!212 &212340661174613262
 SpriteRenderer:
   m_ObjectHideFlags: 1
