@@ -37,5 +37,12 @@ public class LivingEntity : MonoBehaviour {
 	public int GetHealth(){
 		return health;
 	}
+
+	public void AddHealth(int amount){
+		health += amount;
+		if (OnHealthChange != null) {
+			OnHealthChange ();
+		}
+	}
 }
 

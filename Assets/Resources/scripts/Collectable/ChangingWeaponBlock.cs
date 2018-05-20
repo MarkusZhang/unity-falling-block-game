@@ -3,49 +3,24 @@ using System.Collections.Generic;
 using UnityEngine;
 
 // a weapon block that keeps changing its type
+[RequireComponent(typeof(Collectable))]
 public class ChangingWeaponBlock : MonoBehaviour {
 
-	WeaponType type;
-	public float fallingSpeed = 2;
-	public float swingSpeed = 1;
-	public float swingDist = 0.5f;
 	public float typeSwitchInterval = 1f; // seconds between weapon switching
 
 	// Use this for initialization
 	void Start () {
-		type = GetRandomType ();
+		WeaponType type = GetRandomType ();
+		SetCollectableType (type);
 		gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (type));
-		StartCoroutine (SwingLeftRight ());
 		StartCoroutine (SwitchType ());
 	}
-	
-	// fall down
-	void Update () {
-		transform.Translate (Vector2.down * fallingSpeed * Time.deltaTime);
 
-		if (transform.position.y < -Camera.main.orthographicSize) {
-			Destroy (gameObject);
-		}
-	}
-
-	IEnumerator SwingLeftRight(){
-		float centerX = transform.position.x;
-		Vector2 moveDir = Vector2.left;
-
-		while (true) {
-			transform.Translate (moveDir * swingSpeed * Time.deltaTime);
-			if (transform.position.x < centerX - swingDist) {
-				moveDir = Vector2.right;
-			} else if (transform.position.x > centerX + swingDist) {
-				moveDir = Vector2.left;
-			}
-			yield return null;
-		}
-	}
 
 	IEnumerator SwitchType(){
 		while (true) {
-			type = GetRandomType ();
+			WeaponType type = GetRandomType ();
+			SetCollectableType (type);
 			gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (type));
 			yield return new WaitForSeconds (typeSwitchInterval);
 		}
@@ -73,10 +48,9 @@ public class ChangingWeaponBlock : MonoBehaviour {
 			throw new UnityException (type.ToString () + " is not valid type");
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "player") {
-			other.gameObject.GetComponent<Player> ().GetWeapon (type);
-			Destroy (gameObject);
-		}
+	void SetCollectableType(WeaponType type){
+		Collectable c = gameObject.GetComponent<Collectable> ();
+		c.name = type.ToString ();
+		c.param = "1";
 	}
 }

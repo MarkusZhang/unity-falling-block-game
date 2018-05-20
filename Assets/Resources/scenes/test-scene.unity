@@ -126,6 +126,7 @@ GameObject:
   - component: {fileID: 612442369}
   - component: {fileID: 612442368}
   - component: {fileID: 612442367}
+  - component: {fileID: 612442372}
   m_Layer: 0
   m_Name: player
   m_TagString: player
@@ -252,53 +253,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1363143705
-Prefab:
+--- !u!114 &612442372
+MonoBehaviour:
   m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalPosition.x
-      value: -3.21
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalPosition.y
-      value: 6.52
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 4231129350984048, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-      propertyPath: m_RootOrder
-      value: 3
-      objectReference: {fileID: 0}
-    - target: {fileID: 114477832464292064, guid: 0f637b6076f2049e78dd5aa4a5f60670,
-        type: 2}
-      propertyPath: shootInterval
-      value: 100
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-  m_ParentPrefab: {fileID: 100100000, guid: 0f637b6076f2049e78dd5aa4a5f60670, type: 2}
-  m_IsPrefabParent: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 612442366}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c96395bf413a4f7eae9970c7b69d5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1562300886
 GameObject:
   m_ObjectHideFlags: 0

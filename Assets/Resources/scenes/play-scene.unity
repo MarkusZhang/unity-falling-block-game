@@ -357,6 +357,10 @@ MonoBehaviour:
   bossPrefab: {fileID: 1792093013366176, guid: b5c71e24375b646a6ab1a78162fc65ca, type: 2}
   alienshipPrefab: {fileID: 1329541822531440, guid: 0f637b6076f2049e78dd5aa4a5f60670,
     type: 2}
+  healthBlockPrefab: {fileID: 1727943443750944, guid: 7b34c93e87ea4410d87f27f13d23b72a,
+    type: 2}
+  bulletBlockPrefab: {fileID: 1598221274467912, guid: 76974236f85cc4447b09e4fd61cfc7d8,
+    type: 2}
 --- !u!4 &158646875
 Transform:
   m_ObjectHideFlags: 0
@@ -2372,6 +2376,22 @@ CanvasRenderer:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1697922811}
+--- !u!1 &1764106017 stripped
+GameObject:
+  m_PrefabParentObject: {fileID: 1395003987669024, guid: 29b8d7af9440e4d34be4fedb2bb9a203,
+    type: 2}
+  m_PrefabInternal: {fileID: 449383292}
+--- !u!114 &1764106018
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1764106017}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c96395bf413a4f7eae9970c7b69d5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1787081991
 GameObject:
   m_ObjectHideFlags: 0

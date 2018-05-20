@@ -16,4 +16,13 @@ public static class WeaponConstants{
 		{WeaponType.SliderProtector,"block-slider-protector"},
 		{WeaponType.SolidShield,"block-solid-shield"}
 	};
+
+	public static WeaponType GetTypeFromName(string name){
+		foreach (WeaponType type in System.Enum.GetValues(typeof(WeaponType))){
+			if (name == type.ToString()){
+				return type;
+			}
+		}
+		throw new KeyNotFoundException (name + " is not a name for any weapon type");
+	}
 }

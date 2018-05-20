@@ -16,6 +16,9 @@ public class GameFlowManager : MonoBehaviour {
 	public GameObject bossPrefab;
 	public GameObject alienshipPrefab;
 
+	public GameObject healthBlockPrefab;
+	public GameObject bulletBlockPrefab;
+
 	int alienShipIdx = 0;
 	float startTime;
 	State currentState;
@@ -48,12 +51,19 @@ public class GameFlowManager : MonoBehaviour {
 			alienShipIdx++;
 			Vector2 position = new Vector2(Random.Range(-screenHalfWidth,screenHalfWidth),screenHalfHeight + alienshipPrefab.transform.localScale.y);
 			GameObject ship = Instantiate (alienshipPrefab, position, Quaternion.identity);
-			ship.GetComponent<LivingEntity> ().OnDeath += OnAlienShipDeath;
+			ship.GetComponent<LivingEntity> ().OnDeath += () => OnAlienShipDeath(ship.transform);
 		}
 	}
 
-	void OnAlienShipDeath(){
-		//TODO: generate rewards
+	void OnAlienShipDeath(Transform shipTransform){
+		Vector3 deathPosition = shipTransform.position;
+		float deviateX = 3f;
+		if (deathPosition.x + deviateX > screenHalfWidth)
+			deviateX = screenHalfWidth - deathPosition.x;
+		Instantiate (bulletBlockPrefab, deathPosition + new Vector3 (deviateX, 0, 0), Quaternion.identity);
+		if (deathPosition.x - deviateX < - screenHalfWidth) 
+			deviateX = screenHalfWidth + deathPosition.x;
+		Instantiate (healthBlockPrefab, deathPosition + new Vector3 (-deviateX, 0, 0), Quaternion.identity);
 	}
 
 	void OnBossDeath(){

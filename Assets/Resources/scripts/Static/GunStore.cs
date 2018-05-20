@@ -76,6 +76,9 @@ public static class GunStore {
 
 			if (! isBulletInfinite) {
 				allGuns [type] = currentBulletsLeft + bullets;
+				if (OnConsumeBullet != null) {
+					OnConsumeBullet ();
+				}
 			} // otherwise we already have infinite bullets
 		} else {
 			allGuns.Add (type, bullets);
