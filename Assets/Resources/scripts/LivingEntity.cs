@@ -26,7 +26,7 @@ public class LivingEntity : MonoBehaviour {
 		}
 	}
 
-	protected void Die() {
+	public virtual void Die() {
 		dead = true;
 		GameObject.Destroy (gameObject);
 		if (OnDeath != null) {

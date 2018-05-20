@@ -22,6 +22,8 @@ GameObject:
   - component: {fileID: 212257453445883632}
   - component: {fileID: 114841040856223152}
   - component: {fileID: 61858709354715362}
+  - component: {fileID: 50661497987061872}
+  - component: {fileID: 114302009586982262}
   m_Layer: 0
   m_Name: ring-protector
   m_TagString: weapon
@@ -42,6 +44,26 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!50 &50661497987061872
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205318486788492}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
 --- !u!61 &61858709354715362
 BoxCollider2D:
   m_ObjectHideFlags: 1
@@ -67,6 +89,25 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 1.42, y: 1.42}
   m_EdgeRadius: 0
+--- !u!114 &114302009586982262
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1205318486788492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  limitedNumDamages: 0
+  numDamages: -1
+  targetTags:
+  - enemy
+  exceptTags:
+  - bullet
+  destroyEffect: {fileID: 0}
 --- !u!114 &114841040856223152
 MonoBehaviour:
   m_ObjectHideFlags: 1

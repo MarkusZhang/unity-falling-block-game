@@ -36,10 +36,6 @@ public class WeaponDispatcher : MonoBehaviour {
 	}
 
 	void BombScreen(){
-		GameObject[] blocks = GameObject.FindGameObjectsWithTag("falling-block");
-		foreach (GameObject block in blocks) {
-			block.GetComponent<FallingBlock> ().ExplodeAndDestroy ();
-			ScoreCtrl.AddScore ();
-		}
+		print ("Bomb Screen: todo");
 	}
 }

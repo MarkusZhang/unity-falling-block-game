@@ -13,11 +13,14 @@ public class Boss : LivingEntity {
 	public GameObject bulletPrefab;
 	public GameObject hitEffect;
 
+	Color originalColor;
+
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
 		screenHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
 		transform.position = new Vector2(0,7);
+		originalColor = GetComponent<SpriteRenderer> ().color;
 		StartCoroutine (MoveToStage ());
 	}
 
@@ -76,12 +79,14 @@ public class Boss : LivingEntity {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "bullet") {
-			Vector2 collisionPosition = other.transform.position;
-			Instantiate (hitEffect, collisionPosition, Quaternion.identity);
-			TakeDamage (1);
-			Destroy (other.gameObject);
-		} 
+	public override void TakeDamage(int damage){
+		StartCoroutine (DamageAnimation ());
+		base.TakeDamage (damage);
+	}
+
+	IEnumerator DamageAnimation(){
+		GetComponent<SpriteRenderer> ().color = Color.red;
+		yield return new WaitForSeconds(0.1f);
+		GetComponent<SpriteRenderer> ().color = originalColor;
 	}
 }

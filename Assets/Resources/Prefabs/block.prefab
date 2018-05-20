@@ -23,6 +23,7 @@ GameObject:
   - component: {fileID: 50290674191099946}
   - component: {fileID: 58496460386882244}
   - component: {fileID: 114091640533166796}
+  - component: {fileID: 114352740739664606}
   m_Layer: 0
   m_Name: block
   m_TagString: falling-block
@@ -89,12 +90,31 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1a225681f12954347adc3a573b3e1363, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  startingHealth: 0
   maxSpeed: 20
   minSpeed: 5
   speed: 5
-  damage: 1
   explosionEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
     type: 2}
+--- !u!114 &114352740739664606
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1951722361448124}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  limitedNumDamages: 1
+  numDamages: 1
+  targetTags:
+  - player
+  exceptTags:
+  - bullet
+  destroyEffect: {fileID: 0}
 --- !u!212 &212437583484719830
 SpriteRenderer:
   m_ObjectHideFlags: 1

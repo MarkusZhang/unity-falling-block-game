@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class RingBullet : MonoBehaviour {
+public class RingBullet : PlayerBullet {
 
 	private float currentAngle;
 	public int rotationSpeed = 4; // degrees rotated per frame
@@ -21,7 +21,7 @@ public class RingBullet : MonoBehaviour {
 	}
 
 	// Rotating bullet around center
-	void Update () {
+	public override void Update () {
 		float x = rotationRadius * Mathf.Cos (currentAngle * Mathf.Deg2Rad);
 		float y = rotationRadius * Mathf.Sin (currentAngle * Mathf.Deg2Rad);
 		transform.position = new Vector2 (center.position.x + x, center.position.y + y);

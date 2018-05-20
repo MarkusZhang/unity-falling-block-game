@@ -25,12 +25,6 @@ public class RingProtector : TimedWeapon {
 		currentAngle = (currentAngle + rotationSpeed) % 360;
 	}
 
-	void OnTriggerEnter2D(Collider2D collider){
-		if (collider.gameObject.tag == "falling-block") {
-			Destroy (collider.gameObject);
-		}
-	}
-
 	protected override float TotalAliveTime(){
 		return 15f;
 	}

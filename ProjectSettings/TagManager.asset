@@ -5,11 +5,14 @@ TagManager:
   serializedVersion: 2
   tags:
   - projectile
-  - bullet
   - player
   - weapon
   - ui-ring-protector
-  - falling-block
+  - player:bullet
+  - enemy:bullet
+  - enemy:falling-block
+  - enemy:boss
+  - bullet
   layers:
   - Default
   - TransparentFX

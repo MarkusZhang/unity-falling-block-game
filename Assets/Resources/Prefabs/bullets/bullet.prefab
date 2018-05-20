@@ -22,10 +22,10 @@ GameObject:
   - component: {fileID: 212197876378292296}
   - component: {fileID: 50150077592874414}
   - component: {fileID: 58130554265361560}
-  - component: {fileID: 114095869889963642}
+  - component: {fileID: 114366153051311728}
   m_Layer: 0
   m_Name: bullet
-  m_TagString: bullet
+  m_TagString: player:bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,7 +78,7 @@ CircleCollider2D:
   m_Offset: {x: 0.004493654, y: 0}
   serializedVersion: 2
   m_Radius: 0.21158212
---- !u!114 &114095869889963642
+--- !u!114 &114366153051311728
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -86,10 +86,18 @@ MonoBehaviour:
   m_GameObject: {fileID: 1056825356216352}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 085f2adf5d7b3f447a0d22ba4149c5fb, type: 3}
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 15
+  damage: 1
+  limitedNumDamages: 1
+  numDamages: 1
+  targetTags:
+  - enemy
+  exceptTags:
+  - bullet
+  destroyEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
+    type: 2}
 --- !u!212 &212197876378292296
 SpriteRenderer:
   m_ObjectHideFlags: 1

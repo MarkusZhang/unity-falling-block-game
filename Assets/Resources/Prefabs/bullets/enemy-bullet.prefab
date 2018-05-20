@@ -23,9 +23,10 @@ GameObject:
   - component: {fileID: 114600642499933574}
   - component: {fileID: 50069204000554412}
   - component: {fileID: 58395937386109528}
+  - component: {fileID: 114106979803248224}
   m_Layer: 0
   m_Name: enemy-bullet
-  m_TagString: Untagged
+  m_TagString: enemy:bullet
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -78,6 +79,25 @@ CircleCollider2D:
   m_Offset: {x: -0.021067932, y: 0}
   serializedVersion: 2
   m_Radius: 0.38965976
+--- !u!114 &114106979803248224
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1093489154766884}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  limitedNumDamages: 1
+  numDamages: 1
+  targetTags:
+  - player
+  exceptTags:
+  - bullet
+  destroyEffect: {fileID: 0}
 --- !u!114 &114600642499933574
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -90,7 +110,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 10
-  damage: 1
 --- !u!212 &212511902312366548
 SpriteRenderer:
   m_ObjectHideFlags: 1

@@ -52,10 +52,11 @@
   </ItemGroup>
   <ItemGroup>
      <Compile Include="Assets\Resources\scenes\NewBehaviourScript.cs" />
-     <Compile Include="Assets\Resources\scripts\Bullet\BulletCtrl.cs" />
      <Compile Include="Assets\Resources\scripts\Bullet\EnemyBullet.cs" />
+     <Compile Include="Assets\Resources\scripts\Bullet\PlayerBullet.cs" />
      <Compile Include="Assets\Resources\scripts\Bullet\RingBullet.cs" />
      <Compile Include="Assets\Resources\scripts\ChangingWeaponBlock.cs" />
+     <Compile Include="Assets\Resources\scripts\Damager.cs" />
      <Compile Include="Assets\Resources\scripts\Enemy\AlienShip.cs" />
      <Compile Include="Assets\Resources\scripts\Enemy\Boss.cs" />
      <Compile Include="Assets\Resources\scripts\Enemy\FallingBlock.cs" />

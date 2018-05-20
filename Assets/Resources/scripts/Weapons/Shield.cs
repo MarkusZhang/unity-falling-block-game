@@ -12,7 +12,9 @@ public class Shield : TimedWeapon {
 	// Update is called once per frame
 	protected override void Update () {
 		base.Update ();
-		//TODO: change transparency as time passes
+		float transparency = (Time.time - startTime) / TotalAliveTime ();
+		Color c = gameObject.GetComponent<SpriteRenderer> ().color;
+		gameObject.GetComponent<SpriteRenderer> ().color = new Color (c.r, c.g, c.b, 1 - transparency);
 	}
 
 	protected override float TotalAliveTime(){
@@ -20,7 +22,7 @@ public class Shield : TimedWeapon {
 	}
 
 	void OnTriggerEnter2D(Collider2D collider){
-		if (collider.gameObject.tag == "falling-block") {
+		if (collider.gameObject.tag.Contains("enemy") &&  !collider.gameObject.tag.Contains("boss")) {
 			Destroy (collider.gameObject);
 		}
 	}

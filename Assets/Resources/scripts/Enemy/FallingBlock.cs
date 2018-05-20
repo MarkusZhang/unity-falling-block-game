@@ -2,12 +2,11 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBlock : MonoBehaviour {
+public class FallingBlock : LivingEntity {
 
 	public float maxSpeed = 20;
 	public float minSpeed = 5;
 	public float speed;
-	public int damage = 1;
 
 	public GameObject explosionEffect;
 
@@ -25,23 +24,9 @@ public class FallingBlock : MonoBehaviour {
 		}
 	}
 
-	void OnTriggerEnter2D(Collider2D other){
-		if (other.tag == "player") {
-			other.gameObject.GetComponent<Player> ().TakeDamage (damage);
-			ExplodeAndDestroy ();
-		} else if (other.tag == "bullet") {
-			Destroy (other.gameObject);
-			ExplodeAndDestroy ();
-			ScoreCtrl.AddScore ();
-		} else if (other.tag == "weapon") {
-			ExplodeAndDestroy ();
-			ScoreCtrl.AddScore ();
-		}
-	}
-
-	public void ExplodeAndDestroy(){
+	public override void Die(){
 		Instantiate (explosionEffect, transform.position, transform.rotation); // destroy animation
-		Destroy (gameObject);
+		ScoreCtrl.AddScore ();
+		base.Die ();
 	}
-
 }
