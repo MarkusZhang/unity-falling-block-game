@@ -59,7 +59,7 @@ public class Player : LivingEntity {
 		if (Input.GetKeyDown (KeyCode.A)) {
 			TakeAndDispatchWeapon (WeaponType.RingProtector);
 		} else if (Input.GetKeyDown (KeyCode.S)) {
-			TakeAndDispatchWeapon (WeaponType.ScreenBomber);
+			TakeAndDispatchWeapon (WeaponType.BackMissle);
 		} else if (Input.GetKeyDown (KeyCode.D)) {
 			TakeAndDispatchWeapon (WeaponType.SliderProtector);
 		} else if (Input.GetKeyDown (KeyCode.F)) {

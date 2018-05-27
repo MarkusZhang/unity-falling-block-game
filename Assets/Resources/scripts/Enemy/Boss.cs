@@ -12,27 +12,32 @@ public class Boss : LivingEntity {
 	public GameObject blockPrefab;
 	public GameObject bulletPrefab;
 	public GameObject hitEffect;
+	public GameObject attackDownWeapon;
 
+	public int attackDownInterval; // # attacks taken before attacking down
+
+	int numConsecDamagesTaken;
 	Color originalColor;
+	float startY = 3.2f; // the initial Y position boss will move to
 
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
 		screenHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
-		transform.position = new Vector2(0,7);
+		transform.position = new Vector2(0,Camera.main.orthographicSize+2);
 		originalColor = GetComponent<SpriteRenderer> ().color;
 		StartCoroutine (MoveToStage ());
+		StartCoroutine (AttackCoroutine ());
 	}
 
 	IEnumerator MoveToStage(){
-		float targetY = 3.2f;
-		float moveSpeed = 2;
-		while (transform.position.y >  targetY) {
+		float moveSpeed = 4;
+		while (transform.position.y >  startY) {
 			transform.Translate (Vector2.down * moveSpeed * Time.deltaTime);
 			yield return null;
 		}
 		StartCoroutine (MoveLeftRight ());
-		StartCoroutine (AttackCoroutine ());
+
 	}
 
 	IEnumerator MoveLeftRight(){
@@ -67,6 +72,29 @@ public class Boss : LivingEntity {
 		}
 	}
 
+	// drop to the bottom of the screen
+	IEnumerator AttackDown(){
+		float moveDownSpeed = 10;
+		float moveUpSpeed = 12;
+		float targetY = - Camera.main.orthographicSize + transform.localScale.y;
+
+		attackDownWeapon.SetActive (true);
+
+		// move straight down
+		while (transform.position.y >  targetY) {
+			transform.Translate (Vector2.down * moveDownSpeed * Time.deltaTime);
+			yield return null;
+		}
+
+		attackDownWeapon.SetActive (false);
+
+		// move back up
+		while (transform.position.y < startY) {
+			transform.Translate (Vector2.up * moveUpSpeed * Time.deltaTime);
+			yield return null;
+		}
+	}
+
 	void ShootFallingBlocks(){
 		foreach (Transform muzzle in blockMuzzleContainer) {
 			Instantiate (blockPrefab, muzzle.position, muzzle.rotation);
@@ -82,6 +110,13 @@ public class Boss : LivingEntity {
 	public override void TakeDamage(int damage){
 		StartCoroutine (DamageAnimation ());
 		base.TakeDamage (damage);
+		numConsecDamagesTaken++;
+		if (numConsecDamagesTaken >= attackDownInterval) {
+			numConsecDamagesTaken = 0;
+			// randomly choose whether to attack down
+			if (Random.Range(0,1f) > 0.5f)
+				StartCoroutine (AttackDown ());
+		}
 	}
 
 	IEnumerator DamageAnimation(){

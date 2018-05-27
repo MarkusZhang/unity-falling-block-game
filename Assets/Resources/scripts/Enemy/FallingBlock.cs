@@ -11,7 +11,8 @@ public class FallingBlock : LivingEntity {
 	public GameObject explosionEffect;
 
 	// Use this for initialization
-	void Start () {
+	protected override void Start () {
+		base.Start ();
 		speed = Mathf.Lerp (minSpeed, maxSpeed, Difficulty.GetDifficultyPercent ());
 	}
 	

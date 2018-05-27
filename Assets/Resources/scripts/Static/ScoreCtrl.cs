@@ -7,12 +7,16 @@ public static class ScoreCtrl{
 	public static int score;
 	public static event System.Action OnScoreChange;
 
-	public static int[] levelThreshold = {10,30,70,120};
+	public static int[] levelThreshold = {30,90,210,360};
 	public static int currentLevel = 0;
 	public static event System.Action OnLevelChange;
 
 	public static void AddScore(){
-		score += 1;
+		AddScore (1);
+	}
+
+	public static void AddScore(int amount){
+		score += amount;
 		if (OnScoreChange != null) {
 			OnScoreChange ();
 		}

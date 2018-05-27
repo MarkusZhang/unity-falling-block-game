@@ -30,7 +30,7 @@ public class ChangingWeaponBlock : MonoBehaviour {
 	WeaponType GetRandomType(){
 		float rand = Random.Range (0, 1f);
 		if (rand <= 0.3f)
-			return WeaponType.ScreenBomber;
+			return WeaponType.BackMissle;
 		else if (rand <= 0.6f)
 			return WeaponType.SliderProtector;
 		else if (rand <= 0.9f)

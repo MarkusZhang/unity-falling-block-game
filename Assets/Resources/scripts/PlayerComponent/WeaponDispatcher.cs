@@ -8,12 +8,14 @@ public class WeaponDispatcher : MonoBehaviour {
 	public GameObject ringProtectorPrefab;
 	public GameObject shieldPrefab;
 	public GameObject sliderProtectorPrefab;
+	public GameObject backMisslePrefab;
 
 	public void Init(){
 		player = GameObject.FindGameObjectWithTag ("player").transform;
 		ringProtectorPrefab = Resources.Load ("Prefabs/ring-protector") as GameObject;
 		shieldPrefab = Resources.Load ("Prefabs/shield") as GameObject;
 		sliderProtectorPrefab = Resources.Load ("Prefabs/slider") as GameObject;
+		backMisslePrefab = Resources.Load ("Prefabs/back-missle") as GameObject;
 	}
 
 	public void DispatchWeapon(WeaponType type){
@@ -21,9 +23,9 @@ public class WeaponDispatcher : MonoBehaviour {
 			case WeaponType.RingProtector:
 				Instantiate (ringProtectorPrefab, player);
 				break;
-			case WeaponType.ScreenBomber:
-				BombScreen ();
-				break;
+			case WeaponType.BackMissle:
+				Instantiate (backMisslePrefab);
+					break;
 			case WeaponType.SolidShield:
 				Instantiate (shieldPrefab, player);
 				break;
@@ -35,7 +37,4 @@ public class WeaponDispatcher : MonoBehaviour {
 
 	}
 
-	void BombScreen(){
-		print ("Bomb Screen: todo");
-	}
 }

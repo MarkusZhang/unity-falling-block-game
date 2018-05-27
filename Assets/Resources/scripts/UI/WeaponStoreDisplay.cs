@@ -15,7 +15,7 @@ public class WeaponStoreDisplay : MonoBehaviour {
 		Transform canvasTransform = weaponDisplayCanvas.transform;
 		typeToUI.Add(WeaponType.RingProtector,canvasTransform.Find ("ui-ring-protector").gameObject);
 		typeToUI.Add(WeaponType.SliderProtector,canvasTransform.Find("ui-slider-protector").gameObject);
-		typeToUI.Add(WeaponType.ScreenBomber,canvasTransform.Find("ui-screen-bomber").gameObject);
+		typeToUI.Add(WeaponType.BackMissle,canvasTransform.Find("ui-screen-bomber").gameObject);
 		typeToUI.Add(WeaponType.SolidShield,canvasTransform.Find("ui-solid-shield").gameObject);
 
 		WeaponStoreCtrl.OnWeaponStoreChange += UpdateUI;

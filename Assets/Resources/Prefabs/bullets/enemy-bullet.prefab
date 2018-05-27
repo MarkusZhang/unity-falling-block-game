@@ -20,10 +20,10 @@ GameObject:
   m_Component:
   - component: {fileID: 4424670321242204}
   - component: {fileID: 212511902312366548}
-  - component: {fileID: 114600642499933574}
   - component: {fileID: 50069204000554412}
   - component: {fileID: 58395937386109528}
   - component: {fileID: 114106979803248224}
+  - component: {fileID: 114397691500606992}
   m_Layer: 0
   m_Name: enemy-bullet
   m_TagString: enemy:bullet
@@ -99,7 +99,7 @@ MonoBehaviour:
   - bullet
   destroyEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
     type: 2}
---- !u!114 &114600642499933574
+--- !u!114 &114397691500606992
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -107,10 +107,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 1093489154766884}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: e882dde3b53e74332b69fcf5eff8096c, type: 3}
+  m_Script: {fileID: 11500000, guid: 93a883048f9ff454ead86f1ec8209d80, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 10
+  fallingSpeed: 10
 --- !u!212 &212511902312366548
 SpriteRenderer:
   m_ObjectHideFlags: 1

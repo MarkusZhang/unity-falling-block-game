@@ -446,7 +446,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30613a94769874461ad82964ea4ade97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 5
+  startingHealth: 10
   stayTime: 15
   initialY: 2
   shootInterval: 0.8

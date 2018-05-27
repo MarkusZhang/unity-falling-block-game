@@ -86,3 +86,4 @@ MonoBehaviour:
   - {fileID: 4563599468850684}
   defaultShootInterval: 0.3
   shootLimit: -1
+  shootAudio: {fileID: 8300000, guid: 472453e3532ec47ba9295746942e4790, type: 3}

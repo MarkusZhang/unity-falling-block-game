@@ -23,5 +23,7 @@ public class PlayerCollector: MonoBehaviour, ICollector{
 			throw new UnityException (c.type.ToString () + " is not a valid collectable type");
 		}
 
+		// play sound
+		AudioManager.instance.PlaySound(AudioStore.instance.collection,player.transform.position);
 	}
 }

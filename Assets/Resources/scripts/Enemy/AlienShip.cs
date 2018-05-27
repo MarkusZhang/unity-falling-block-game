@@ -99,6 +99,11 @@ public class AlienShip : LivingEntity {
 		}
 	}
 
+	public override void Die(){
+		AudioManager.instance.PlaySound (AudioStore.instance.spaceshipDeath, transform.position);
+		base.Die ();
+	}
+
 	Vector3 GetRandomEscapePosition(){
 		float screenHalfHeight = Camera.main.orthographicSize;
 		float screenHalfWidth = Camera.main.aspect * screenHalfHeight;

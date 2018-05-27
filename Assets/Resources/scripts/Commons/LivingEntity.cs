@@ -6,12 +6,14 @@ public class LivingEntity : MonoBehaviour {
 	public int startingHealth;
 	protected int health;
 	protected bool dead;
+	float startAliveTime;
 
 	public event System.Action OnDeath;
 	public event System.Action OnHealthChange;
 
 	protected virtual void Start() {
 		health = startingHealth;
+		startAliveTime = Time.time;
 	}
 
 	public virtual void TakeDamage(int damage) {
@@ -38,10 +40,16 @@ public class LivingEntity : MonoBehaviour {
 		return health;
 	}
 
+	public float GetStartAliveTime(){
+		return startAliveTime;
+	}
+
 	public void AddHealth(int amount){
-		health += amount;
-		if (OnHealthChange != null) {
-			OnHealthChange ();
+		if (health < startingHealth) {
+			health += amount;
+			if (OnHealthChange != null) {
+				OnHealthChange ();
+			}
 		}
 	}
 }

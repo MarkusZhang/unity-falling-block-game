@@ -6,13 +6,23 @@ using UnityEngine;
 public class FallBlock : MonoBehaviour {
 	
 	public float fallingSpeed = 2;
+	public bool moveDown = true;
 	
 	// Update is called once per frame
 	void Update () {
-		transform.Translate (Vector2.down * fallingSpeed * Time.deltaTime);
+		Vector2 moveDir = moveDown ? Vector2.down : Vector2.up;
+		transform.Translate (moveDir * fallingSpeed * Time.deltaTime);
 
-		if (transform.position.y < -Camera.main.orthographicSize) {
-			Destroy (gameObject);
+		if (moveDown) {
+			// check if it has passed the bottom
+			if (transform.position.y < -Camera.main.orthographicSize) {
+				Destroy (gameObject);
+			}
+		} else {
+			// check if it has passed the top
+			if (transform.position.y > Camera.main.orthographicSize) {
+				Destroy (gameObject);
+			}
 		}
 	}
 }
