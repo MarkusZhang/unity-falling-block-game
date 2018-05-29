@@ -7,7 +7,7 @@ enum ShipState{
 	shooting
 };
 
-public class AlienShip : LivingEntity {
+public class AlienShip : LivingEntityWithAudio {
 
 	public float stayTime;
 	public float initialY;
@@ -100,7 +100,7 @@ public class AlienShip : LivingEntity {
 	}
 
 	public override void Die(){
-		AudioManager.instance.PlaySound (AudioStore.instance.spaceshipDeath, transform.position);
+		AudioManager.instance.PlaySound (AudioStore.instance.spaceshipDeath);
 		base.Die ();
 	}
 

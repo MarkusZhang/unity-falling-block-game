@@ -85,6 +85,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   fallingSpeed: 2
+  moveDown: 1
 --- !u!114 &114663401386727260
 MonoBehaviour:
   m_ObjectHideFlags: 1

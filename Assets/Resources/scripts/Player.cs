@@ -2,13 +2,13 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Player : LivingEntity {
+public class Player : LivingEntityWithAudio {
 
-	private float speed = 7;
+	public float moveSpeed = 8;
 
 	bool disabled = false;
 
-	GunManager gunManager;
+	public GunManager gunManager;
 	WeaponDispatcher weaponDispatcher;
 	Color originalColor;
 	Utils utils;
@@ -16,8 +16,7 @@ public class Player : LivingEntity {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
-		weaponDispatcher = gameObject.AddComponent<WeaponDispatcher>();
-		weaponDispatcher.Init ();
+		weaponDispatcher = WeaponDispatcher.instance;
 
 		gunManager = gameObject.AddComponent<GunManager>();
 
@@ -40,8 +39,8 @@ public class Player : LivingEntity {
 		float inputY = Input.GetAxisRaw("Vertical");
 		Vector2 dirToMove = new Vector2 (inputX, inputY).normalized;
 		Vector2 myPosition = new Vector2 (transform.position.x, transform.position.y);
-		if (!utils.IsOffScreen (myPosition + dirToMove * speed * Time.deltaTime)) {
-			transform.Translate (dirToMove * speed * Time.deltaTime);
+		if (!utils.IsOffScreen (myPosition + dirToMove * moveSpeed * Time.deltaTime)) {
+			transform.Translate (dirToMove * moveSpeed * Time.deltaTime);
 		}
 
 		// get shooting bullet command
@@ -93,12 +92,16 @@ public class Player : LivingEntity {
 		int level = ScoreCtrl.GetLevel ();
 		if (level == 1) {
 			gunManager.SetRelativeShootSpeed (1.5f);
+			moveSpeed += 2;
 		} else if (level == 2) {
 			gunManager.SetRelativeShootSpeed (2f);
+			moveSpeed += 2;
 		} else if (level == 3) {
 			gunManager.SetRelativeShootSpeed (3f);
+			moveSpeed += 1;
 		} else if (level == 4) {
 			gunManager.SetRelativeShootSpeed (4f);
+			moveSpeed += 1;
 		}
 	}
 }

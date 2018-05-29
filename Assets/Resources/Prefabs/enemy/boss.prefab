@@ -132,6 +132,8 @@ GameObject:
   - component: {fileID: 114263164343195486}
   - component: {fileID: 60691891553521216}
   - component: {fileID: 114966097707474512}
+  - component: {fileID: 50984275866226856}
+  - component: {fileID: 114368955884936260}
   m_Layer: 0
   m_Name: boss
   m_TagString: enemy:boss
@@ -373,6 +375,26 @@ Rigidbody2D:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1348709329143236}
+  m_BodyType: 1
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 1
+  m_LinearDrag: 0
+  m_AngularDrag: 0.05
+  m_GravityScale: 1
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 0
+--- !u!50 &50984275866226856
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792093013366176}
   m_BodyType: 1
   m_Simulated: 1
   m_UseFullKinematicContacts: 0
@@ -954,7 +976,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d96a2fe4a92f948e9ae7e600da38c6fb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 100
+  startingHealth: 120
+  hitAudioName: enemy-hit
+  deathAudioName: boss-death
   blockMuzzleContainer: {fileID: 4219102633044198}
   BulletMuzzleContainer: {fileID: 4039719885045746}
   blockPrefab: {fileID: 1951722361448124, guid: 0fb903c03dde72e4984192f8994700c0,
@@ -964,6 +988,24 @@ MonoBehaviour:
   hitEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035, type: 2}
   attackDownWeapon: {fileID: 1348709329143236}
   attackDownInterval: 5
+--- !u!114 &114368955884936260
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1792093013366176}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 1
+  limitedNumDamages: 0
+  numDamages: 0
+  targetTags:
+  - player
+  exceptTags: []
+  destroyEffect: {fileID: 0}
 --- !u!114 &114966097707474512
 MonoBehaviour:
   m_ObjectHideFlags: 1

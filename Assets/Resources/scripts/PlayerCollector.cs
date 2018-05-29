@@ -17,13 +17,14 @@ public class PlayerCollector: MonoBehaviour, ICollector{
 			player.AddHealth (amount);
 
 		} else if (c.type == CollectableType.bullet) {
-			GunStore.AddGun (GunConstants.GetTypeFromName (c.name), Int32.Parse (c.param));
-
+			GunType type = GunConstants.GetTypeFromName (c.name);
+			GunStore.AddGun (type, Int32.Parse (c.param));
+			player.gunManager.SwitchGun (type);
 		} else {
 			throw new UnityException (c.type.ToString () + " is not a valid collectable type");
 		}
 
 		// play sound
-		AudioManager.instance.PlaySound(AudioStore.instance.collection,player.transform.position);
+		AudioManager.instance.PlaySound(AudioStore.instance.collection);
 	}
 }

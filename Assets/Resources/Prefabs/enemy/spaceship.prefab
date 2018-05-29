@@ -427,7 +427,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 10
+  damage: 3
   limitedNumDamages: 1
   numDamages: 1
   targetTags:
@@ -446,7 +446,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 30613a94769874461ad82964ea4ade97, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 20
+  hitAudioName: enemy-hit
+  deathAudioName: alienship-death
   stayTime: 15
   initialY: 2
   shootInterval: 0.8

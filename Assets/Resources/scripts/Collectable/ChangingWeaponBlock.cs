@@ -20,6 +20,7 @@ public class ChangingWeaponBlock : MonoBehaviour {
 	IEnumerator SwitchType(){
 		while (true) {
 			WeaponType type = GetRandomType ();
+			//WeaponType type = WeaponType.SliderProtector;
 			SetCollectableType (type);
 			gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (type));
 			yield return new WaitForSeconds (typeSwitchInterval);

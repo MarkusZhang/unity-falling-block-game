@@ -37,6 +37,21 @@ public static class GunStore {
 		throw new UnityException (currentGunType.ToString () + " doesn't exist in allGuns, unexpected!");
 	}
 
+	// switch to a specific type of gun
+	public static GunType SwitchGun(GunType type){
+		if (allGuns.ContainsKey (type)) {
+			currentGunType = type;
+			allGuns.TryGetValue (currentGunType, out numBulletsLeft);
+
+			if (OnSwitchGun != null) {
+				OnSwitchGun ();
+			}
+			return type;
+		} else {
+			throw new UnityException (type.ToString () + " doesn't exist in gun store");
+		}
+	}
+
 	public static void ConsumeBullet(){
 		bool isBulletInfinite = numBulletsLeft < 0;
 
@@ -45,19 +60,21 @@ public static class GunStore {
 
 			if (numBulletsLeft == 0) {
 
-				Debug.Assert (allGuns.ContainsKey (GunType.Default), "Default gun type missing in allGuns!");
-				allGuns.Remove (currentGunType);
+				GunType typeToRemove = currentGunType;
+//				Debug.Assert (allGuns.ContainsKey (GunType.Default), "Default gun type missing in allGuns!");
+				GunStore.SwitchGun();
+				allGuns.Remove (typeToRemove);
 				// switch back to default
-				currentGunType = GunType.Default;
-				allGuns.TryGetValue (currentGunType, out numBulletsLeft);
+//				currentGunType = GunType.Default;
+//				allGuns.TryGetValue (currentGunType, out numBulletsLeft);
 
 				// call event listener
 				if (OnBulletLimitReached != null) {
 					OnBulletLimitReached ();
 				}
-				if (OnSwitchGun != null) {
-					OnSwitchGun ();
-				}
+//				if (OnSwitchGun != null) {
+//					OnSwitchGun ();
+//				}
 			} else {
 
 				if (OnConsumeBullet != null) {

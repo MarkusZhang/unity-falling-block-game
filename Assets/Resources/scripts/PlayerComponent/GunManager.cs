@@ -15,9 +15,9 @@ public class GunManager : MonoBehaviour {
 
 	void Start(){
 		GunStore.AddGun (GunType.Default, -1);
-		GunStore.AddGun (GunType.Ring, 100);
-		GunStore.AddGun (GunType.Spray, 100);
-		GunStore.AddGun (GunType.Wide, 100);
+		GunStore.AddGun (GunType.Ring, 25);
+		GunStore.AddGun (GunType.Spray, 25);
+		GunStore.AddGun (GunType.Wide, 25);
 		// use default gun
 		SetCurrentGun(GunType.Default);
 	}
@@ -31,9 +31,20 @@ public class GunManager : MonoBehaviour {
 	// switch to next gun in `allGuns`
 	public void SwitchGun(){
 		GunType type = GunStore.SwitchGun ();
+		_SwitchGun (type);
+	}
+
+	public void SwitchGun(GunType type){
+		GunStore.SwitchGun (type);
+		_SwitchGun (type);
+	}
+
+	// internal switching procedure
+	void _SwitchGun(GunType type){
 		if (type != currentGunType) {
 			Destroy (currentGunObject);
 			SetCurrentGun (type);
+			AudioManager.instance.PlaySound (AudioStore.instance.switchGun);
 		}
 	}
 

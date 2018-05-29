@@ -146,4 +146,4 @@ MonoBehaviour:
   - {fileID: 4908108353522778}
   defaultShootInterval: 0.3
   shootLimit: -1
-  shootAudio: {fileID: 8300000, guid: 75ebe0fdf6b3f4e219c9170ed9cb0e15, type: 3}
+  shootAudioName: spray-bullet

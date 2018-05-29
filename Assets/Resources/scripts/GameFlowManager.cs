@@ -21,7 +21,7 @@ public class GameFlowManager : MonoBehaviour {
 	public GameObject healthBarUIPrefab;
 
 	// audios
-	public AudioClip backgroundMusic;
+	public AudioSource bgm;
 
 	int alienShipIdx = 0;
 	float startTime;
@@ -40,22 +40,15 @@ public class GameFlowManager : MonoBehaviour {
 		GameObject.FindGameObjectWithTag ("player").GetComponent<Player> ().OnDeath += OnPlayerDeath;
 
 		// start playing background audio
-		AudioManager.instance.PlayMusic(backgroundMusic);
+		bgm = AudioStore.instance.background;
+		AudioManager.instance.PlaySound(bgm);
 	}
 	
 	// Update is called once per frame
 	void Update () {
 		if (currentState == State.Start && Time.time - startTime >= bossStageTime) {
 			currentState = State.Boss;
-			// stop spawning blocks
-			Destroy (GameObject.Find ("Spawner"));
-			Destroy (GameObject.Find ("WeaponBlockSpawner"));
-			// show boss
-			GameObject boss = Instantiate(bossPrefab);
-			boss.GetComponent<LivingEntity> ().OnDeath += () => OnBossDeath(boss);
-			// show boss health bar
-			GameObject healthBar = Instantiate(healthBarUIPrefab) as GameObject;
-			healthBar.GetComponent<HealthBar> ().AttachToLivingEntity (boss.GetComponent<LivingEntity> ());
+			StartBossStage ();
 		}
 
 		// spawn alien ship
@@ -67,21 +60,44 @@ public class GameFlowManager : MonoBehaviour {
 		}
 	}
 
+	void StartBossStage(){
+		// stop spawning blocks
+		Destroy (GameObject.Find ("Spawner"));
+		Destroy (GameObject.Find ("WeaponBlockSpawner"));
+		// show boss
+		GameObject boss = Instantiate(bossPrefab);
+		boss.GetComponent<LivingEntity> ().OnDeath += () => OnBossDeath(boss);
+		// show boss health bar
+		GameObject healthBar = Instantiate(healthBarUIPrefab) as GameObject;
+		healthBar.GetComponent<HealthBar> ().AttachToLivingEntity (boss.GetComponent<LivingEntity> ());
+
+		// switch background music
+		AudioManager.instance.StopSound(bgm);
+		bgm = AudioStore.instance.bossStage;
+		AudioManager.instance.PlaySound(bgm);
+	}
+
 	void OnAlienShipDeath(Transform shipTransform){
 		// calculate points to award
 		LivingEntity shipEntity = shipTransform.gameObject.GetComponent<LivingEntity>();
 		float shipAliveTime = Time.time - shipEntity.GetStartAliveTime();
 		ScoreCtrl.AddScore((int)(shipEntity.startingHealth * 20 / shipAliveTime));
 
-		// generate reward blocks
+		// randomly generate reward blocks
 		Vector3 deathPosition = shipTransform.position;
 		float deviateX = 3f;
-		if (deathPosition.x + deviateX > screenHalfWidth)
-			deviateX = screenHalfWidth - deathPosition.x;
-		Instantiate (bulletBlockPrefab, deathPosition + new Vector3 (deviateX, 0, 0), Quaternion.identity);
-		if (deathPosition.x - deviateX < - screenHalfWidth) 
-			deviateX = screenHalfWidth + deathPosition.x;
-		Instantiate (healthBlockPrefab, deathPosition + new Vector3 (-deviateX, 0, 0), Quaternion.identity);
+		float timeForUnitDamage = shipAliveTime / shipEntity.startingHealth;
+		if (timeForUnitDamage < 2f) {
+			if (deathPosition.x + deviateX > screenHalfWidth)
+				deviateX = screenHalfWidth - deathPosition.x;
+			Instantiate (bulletBlockPrefab, deathPosition + new Vector3 (deviateX, 0, 0), Quaternion.identity);
+		}
+
+		if (timeForUnitDamage < 0.5f) {
+			if (deathPosition.x - deviateX < -screenHalfWidth)
+				deviateX = screenHalfWidth + deathPosition.x;
+			Instantiate (healthBlockPrefab, deathPosition + new Vector3 (-deviateX, 0, 0), Quaternion.identity);
+		}
 	}
 
 	void OnBossDeath(GameObject boss){
@@ -89,13 +105,14 @@ public class GameFlowManager : MonoBehaviour {
 		LivingEntity bossEntity = boss.GetComponent<LivingEntity>();
 		float aliveTime = Time.time - bossEntity.GetStartAliveTime();
 		ScoreCtrl.AddScore ((int)(bossEntity.startingHealth * 100 / aliveTime));
+		StartCoroutine (DelayAndSwitchScene ("game-win", 4));
 
-		AudioManager.instance.PlaySound (AudioStore.instance.bossDeath, transform.position);
-		StartCoroutine (DelayAndSwitchScene ("game-win", 2));
+		// stop music
+		AudioManager.instance.StopSound(bgm);
 	}
 
 	void OnPlayerDeath(){
-		StartCoroutine (DelayAndSwitchScene ("game-over", 2));
+		StartCoroutine (DelayAndSwitchScene ("game-over", 4));
 	}
 
 	IEnumerator DelayAndSwitchScene(string sceneName,float seconds){

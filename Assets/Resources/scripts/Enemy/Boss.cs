@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Boss : LivingEntity {
+public class Boss : LivingEntityWithAudio {
 
 //	bool isLaunchingAttack = false;
 	float screenHalfWidth;

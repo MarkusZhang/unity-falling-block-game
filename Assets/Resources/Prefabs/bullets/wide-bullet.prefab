@@ -113,9 +113,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 1
+  damage: 2
   limitedNumDamages: 1
-  numDamages: 3
+  numDamages: 1
   targetTags:
   - enemy
   exceptTags:

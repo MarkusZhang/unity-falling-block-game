@@ -86,4 +86,4 @@ MonoBehaviour:
   - {fileID: 4289757506106962}
   defaultShootInterval: 0.3
   shootLimit: -1
-  shootAudio: {fileID: 8300000, guid: 2ec5e080bb5894748a02ab1a83d9c8ce, type: 3}
+  shootAudioName: ring-bullet

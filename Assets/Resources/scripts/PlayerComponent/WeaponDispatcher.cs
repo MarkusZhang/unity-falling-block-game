@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class WeaponDispatcher : MonoBehaviour {
 
+	public static WeaponDispatcher instance;
+
 	public Transform player;
 	public GameObject ringProtectorPrefab;
 	public GameObject shieldPrefab;
 	public GameObject sliderProtectorPrefab;
 	public GameObject backMisslePrefab;
 
-	public void Init(){
+	void Awake(){
+		instance = this;
 		player = GameObject.FindGameObjectWithTag ("player").transform;
-		ringProtectorPrefab = Resources.Load ("Prefabs/ring-protector") as GameObject;
-		shieldPrefab = Resources.Load ("Prefabs/shield") as GameObject;
-		sliderProtectorPrefab = Resources.Load ("Prefabs/slider") as GameObject;
-		backMisslePrefab = Resources.Load ("Prefabs/back-missle") as GameObject;
 	}
 
 	public void DispatchWeapon(WeaponType type){

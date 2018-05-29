@@ -11,7 +11,7 @@ public class Gun : MonoBehaviour {
 	public int shootLimit; // negative number indicates no limit
 	public event System.Action OnShootLimitReached;
 
-	public AudioClip shootAudio;
+	public string shootAudioName;
 
 	private float lastShootTime;
 	float shootInterval;
@@ -34,7 +34,7 @@ public class Gun : MonoBehaviour {
 			}
 
 			// shoot sound
-			AudioManager.instance.PlaySound (shootAudio, transform.position);
+			AudioManager.instance.PlaySound (AudioStore.instance.GetAudioSourceByName(shootAudioName));
 
 			// check shoot limit
 			if (shootLimit > 0) {

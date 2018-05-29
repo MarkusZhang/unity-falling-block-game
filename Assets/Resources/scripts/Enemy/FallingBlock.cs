@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class FallingBlock : LivingEntity {
+public class FallingBlock : LivingEntityWithAudio {
 
 	public float maxSpeed = 20;
 	public float minSpeed = 5;

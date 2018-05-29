@@ -14,6 +14,7 @@ TagManager:
   - enemy:boss
   - bullet
   - enemy:alien-ship
+  - enemy:tracking-missile
   layers:
   - Default
   - TransparentFX

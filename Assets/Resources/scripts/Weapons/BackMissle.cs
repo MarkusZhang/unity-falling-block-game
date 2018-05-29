@@ -10,10 +10,10 @@ public class BackMissle : TimedWeapon {
 	// Use this for initialization
 	protected override void Start () {
 		base.Start ();
-		StartCoroutine (RandomFire ());
+		StartCoroutine (ShootMissiles ());
 	}
 	
-	IEnumerator RandomFire(){
+	IEnumerator ShootMissiles(){
 		float screenHalfWidth = Camera.main.aspect * Camera.main.orthographicSize;
 		float screenHalfHeight = Camera.main.orthographicSize;
 		while (true) {
@@ -23,9 +23,13 @@ public class BackMissle : TimedWeapon {
 			yield return new WaitForSeconds (fireInterval);
 		}
 	}
-
+//
+//	Vector2 FindEnemyPosition(){
+//		string[] enemyTags = {"enemy:boss","enemy:alien-ship","enemy:falling-block"}
+//	}
+//
 	protected override float TotalAliveTime(){
-		return 15f;
+		return 8f;
 	}
 
 }

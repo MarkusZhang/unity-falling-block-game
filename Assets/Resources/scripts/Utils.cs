@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Utils : MonoBehaviour {
 
+	public static Utils instance;
+
+	void Awake(){
+		instance = this;
+	}
+
 	public bool IsOffScreen(Vector2 position){
 		float screenHalfHeight = Camera.main.orthographicSize;
 		float screenHalfWidth = Camera.main.aspect * screenHalfHeight;
