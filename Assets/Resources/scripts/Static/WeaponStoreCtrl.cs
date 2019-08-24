@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-// static class for storing collected weapons
+// DEPRECATED: static class for storing collected weapons
 public static class WeaponStoreCtrl {
 
 	public static Hashtable storedWeapons = new Hashtable();
@@ -46,6 +46,11 @@ public static class WeaponStoreCtrl {
 
 	public static void Reset(){
 		storedWeapons = new Hashtable();
+		RemoveEventListeners();
+	}
+
+	public static void RemoveEventListeners()
+	{
 		OnWeaponStoreChange = null;
 	}
 }

@@ -7,9 +7,9 @@ enum ShipState{
 	shooting
 };
 
-public class AlienShip : LivingEntityWithAudio {
+public class AlienShip : LivingEntity {
 
-	public float stayTime;
+//	public float stayTime;
 	public float initialY;
 	public float shootInterval;
 	public float escapeSpeed; // speed of changing position after being hit
@@ -18,7 +18,6 @@ public class AlienShip : LivingEntityWithAudio {
 	public GameObject bulletPrefab;
 	public Transform muzzle;
 
-	float startTime;
 	ShipState state;
 	Vector3 moveTo;
 	Color originalColor;
@@ -38,7 +37,6 @@ public class AlienShip : LivingEntityWithAudio {
 			transform.position = Vector3.MoveTowards (transform.position, targetPosition, moveSpeed * Time.deltaTime);
 			if (transform.position == targetPosition) {
 				state = ShipState.shooting;
-				startTime = Time.time;
 				StartCoroutine (AttackRoutine ());
 				break;
 			}
@@ -48,7 +46,7 @@ public class AlienShip : LivingEntityWithAudio {
 
 	// keep attacking until being hit
 	IEnumerator AttackRoutine(){
-		while (Time.time - startTime < stayTime) {
+		while (true) {
 			if (state == ShipState.shooting) {
 				RandomShoot ();
 				yield return new WaitForSeconds (shootInterval);
@@ -62,24 +60,13 @@ public class AlienShip : LivingEntityWithAudio {
 				throw new UnityException ("invalid state: " + state.ToString ());
 			}
 		}
-		StartCoroutine (MoveOut ());
+//		StartCoroutine (MoveOut ());
 
-	}
-
-	IEnumerator MoveOut(){
-		float screenHalfHeight = Camera.main.orthographicSize;
-		float targetY = screenHalfHeight + transform.localScale.y;
-		float speed = 10;
-		while (transform.position.y < targetY) {
-			transform.Translate (Vector2.down * speed * Time.deltaTime);
-			yield return null;
-		}
-		Destroy (gameObject);
 	}
 
 	void RandomShoot(){
 		GameObject player = GameObject.FindGameObjectWithTag ("player");
-		Debug.Assert (player != null, "player not found!");
+
 		// set random angle
 		if (player != null) {
 			float shootAngle = Random.Range (0, shootAngleMax);
@@ -100,7 +87,10 @@ public class AlienShip : LivingEntityWithAudio {
 	}
 
 	public override void Die(){
-		AudioManager.instance.PlaySound (AudioStore.instance.spaceshipDeath);
+		if (AudioManager.instance != null)
+		{
+			AudioManager.instance.PlaySound (AudioStore.instance.spaceshipDeath);
+		}
 		base.Die ();
 	}
 

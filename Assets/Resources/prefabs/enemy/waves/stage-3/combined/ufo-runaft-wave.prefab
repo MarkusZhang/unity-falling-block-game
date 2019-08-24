@@ -1,0 +1,79 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1726579106069914}
+  m_IsPrefabParent: 1
+--- !u!1 &1726579106069914
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4686478738936810}
+  - component: {fileID: 114662924896349074}
+  m_Layer: 0
+  m_Name: ufo-runaft-wave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4686478738936810
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726579106069914}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114662924896349074
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1726579106069914}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c4cd72c41f1e24f83a66cce303dca5f5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  configs:
+  - waveTime: 3
+    waitTillFinish: 0
+    wavePrefab: {fileID: 1567933532189760, guid: 86a1a4616de5647e9abc3e7d4a421647,
+      type: 2}
+    spawnPos: {x: 0, y: 0}
+    isWave: 0
+  - waveTime: 2
+    waitTillFinish: 0
+    wavePrefab: {fileID: 1232112677637876, guid: 1243f93cb759a40808fc40e176dc1309,
+      type: 2}
+    spawnPos: {x: 0, y: 0}
+    isWave: 1
+  - waveTime: 2
+    waitTillFinish: 0
+    wavePrefab: {fileID: 1232112677637876, guid: 1243f93cb759a40808fc40e176dc1309,
+      type: 2}
+    spawnPos: {x: 0, y: 0}
+    isWave: 1
+  - waveTime: 0
+    waitTillFinish: 0
+    wavePrefab: {fileID: 1717965481322752, guid: 6acb07199e71643f0b3cec60d0bda0cc,
+      type: 2}
+    spawnPos: {x: 0, y: 0}
+    isWave: 1
+  startAuto: 1

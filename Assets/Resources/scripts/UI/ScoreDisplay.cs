@@ -10,6 +10,7 @@ public class ScoreDisplay : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		ScoreCtrl.OnScoreChange += UpdateUI;
+		UpdateUI();
 	}
 	
 	void UpdateUI () {

@@ -13,6 +13,8 @@ public class GunStatusDisplay : MonoBehaviour {
 		GunStore.OnConsumeBullet += UpdateBulletsRemaining;
 		GunStore.OnSwitchGun += UpdateIcon;
 		GunStore.OnSwitchGun += UpdateBulletsRemaining;
+		UpdateIcon();
+		UpdateBulletsRemaining();
 	}
 	
 	// Update is called once per frame
@@ -22,28 +24,21 @@ public class GunStatusDisplay : MonoBehaviour {
 		gunIcon.GetComponent<Image>().sprite = Resources.Load<Sprite>(iconImageName);
 	}
 
-	void UpdateBulletsRemaining(){
-		bool isBulletInfinite = GunStore.numBulletsLeft < 0;
+	void UpdateBulletsRemaining()
+	{
+		var bulletsLeft = GunStore.GetGunStoreStatus()[GunStore.currentGunType];
+		bool isBulletInfinite = bulletsLeft < 0;
 		if (isBulletInfinite) {
 			numBulletsRemaining.text = "";
 		} else {
-			numBulletsRemaining.text = "" + GunStore.numBulletsLeft;
+			numBulletsRemaining.text = "" + bulletsLeft;
 		}
 
 	}
 
-	string TypeToImageName(GunType type){
-		if (type == GunType.Default) {
-			return "images/icons/icon-default-gun";
-		} else if (type == GunType.Spray) {
-			return "images/icons/icon-spray-gun";
-		} else if (type == GunType.Wide) {
-			return "images/icons/icon-wide-gun";
-		} else if (type == GunType.Ring) {
-			return "images/icons/icon-ring-gun";
-		} else {
-			throw new UnityException (type.ToString () + " is not a valid gun type");
-		}
+	string TypeToImageName(GunType type)
+	{
+		return GunConstants.typeToIconName[type];
 	}
 
 	void OnDestroy(){

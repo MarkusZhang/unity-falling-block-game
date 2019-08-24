@@ -5,7 +5,8 @@ using UnityEngine;
 public enum CollectableType{
 	weapon,
 	bullet,
-	health
+	health,
+	bulletPower
 }
 
 // interface class
@@ -13,7 +14,7 @@ public enum CollectableType{
 public class Collectable : MonoBehaviour {
 
 	public CollectableType type;
-	public string name; 
+	public string cname; 
 	public string param;
 
 	void OnTriggerEnter2D(Collider2D collider){

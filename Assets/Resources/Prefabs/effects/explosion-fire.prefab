@@ -22,7 +22,6 @@ GameObject:
   - component: {fileID: 212996546688154334}
   - component: {fileID: 50484477824122134}
   - component: {fileID: 58685052129722262}
-  - component: {fileID: 114405577875494004}
   - component: {fileID: 114098789873238202}
   m_Layer: 0
   m_Name: explosion-fire
@@ -91,24 +90,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   totalShowTime: 0.2
---- !u!114 &114405577875494004
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1731539670731710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 3
-  limitedNumDamages: 1
-  numDamages: 2
-  targetTags:
-  - enemy
-  exceptTags: []
-  destroyEffect: {fileID: 0}
 --- !u!212 &212996546688154334
 SpriteRenderer:
   m_ObjectHideFlags: 1

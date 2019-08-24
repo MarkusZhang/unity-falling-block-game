@@ -1,0 +1,64 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1873969227046754}
+  m_IsPrefabParent: 1
+--- !u!1 &1873969227046754
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4170178379180156}
+  - component: {fileID: 114473799174495470}
+  m_Layer: 0
+  m_Name: poop-wave-1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4170178379180156
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873969227046754}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.3725594, y: -3.010946, z: 0.09194179}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114473799174495470
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1873969227046754}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 390ae625d7c2942668c3e3692d75bc82, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awardPrefab: {fileID: 1594717853502522, guid: 2fe85ae17503a428ea0a67087ebb6c6f,
+    type: 2}
+  awardAfterNumEnemiesKilled: 1
+  awardTimeLimit: 5
+  enemyPrefab: {fileID: 1755619225438032, guid: c260f3f8eca4b494e86b9f6a43402126,
+    type: 2}
+  anchor: 0
+  offset: {x: 6, y: 2}
+  moveAftSpawn: 1
+  moveToOffset: {x: 6, y: -2}
+  moveSpeed: 10

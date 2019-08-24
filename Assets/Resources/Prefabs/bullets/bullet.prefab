@@ -24,6 +24,7 @@ GameObject:
   - component: {fileID: 58130554265361560}
   - component: {fileID: 114366153051311728}
   - component: {fileID: 114500040118058980}
+  - component: {fileID: 114929168031411616}
   m_Layer: 0
   m_Name: bullet
   m_TagString: player:bullet
@@ -97,6 +98,8 @@ MonoBehaviour:
   - enemy
   exceptTags:
   - bullet
+  destroyEnemyBullet: 0
+  destroyEnemyLaser: 0
   destroyEffect: {fileID: 1648509384754154, guid: 9b55b1b6e9ec74c42bca30b70f532035,
     type: 2}
 --- !u!114 &114500040118058980
@@ -112,6 +115,17 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   fallingSpeed: 15
   moveDown: 0
+--- !u!114 &114929168031411616
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1056825356216352}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71b95061442c94db7b3fc2a542625504, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!212 &212197876378292296
 SpriteRenderer:
   m_ObjectHideFlags: 1

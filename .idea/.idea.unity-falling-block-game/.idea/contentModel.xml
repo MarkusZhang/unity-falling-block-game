@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ContentModelStore">
+    <e p="$PROJECT_DIR$" t="IncludeRecursive">
+      <e p="Assembly-CSharp-Editor-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp-firstpass.csproj" t="IncludeRecursive" />
+      <e p="Assembly-CSharp.csproj" t="IncludeRecursive" />
+      <e p="Assets/BounceLaser.cs" t="Include" />
+      <e p="Assets/Plugins" t="Include">
+        <e p="SuperPivot" t="Include">
+          <e p="API.cs" t="Include" />
+          <e p="Editor" t="Include">
+            <e p="EditorAPI.cs" t="Include" />
+            <e p="TargetWrapper.cs" t="Include" />
+            <e p="TransformCustomInspector.cs" t="Include" />
+            <e p="Window.cs" t="Include" />
+          </e>
+          <e p="HowToUse.txt" t="Include" />
+          <e p="ShowPivot.cs" t="Include" />
+        </e>
+      </e>
+      <e p="Assets/Resources" t="Include">
+        <e p="scripts" t="Include">
+          <e p="_" t="Include">
+            <e p="BezierCurve.cs" t="Include" />
+          </e>
+          <e p="Audio" t="Include">
+            <e p="AudioManager.cs" t="Include" />
+            <e p="AudioStore.cs" t="Include" />
+          </e>
+          <e p="Collectable" t="Include">
+            <e p="ChangingBulletBlock.cs" t="Include" />
+            <e p="ChangingWeaponBlock.cs" t="Include" />
+          </e>
+          <e p="Commons" t="Include">
+            <e p="Collectable.cs" t="Include" />
+            <e p="Collector.cs" t="Include" />
+            <e p="Damager.cs" t="Include" />
+            <e p="DestroyWhenGoingOffScreen.cs" t="Include" />
+            <e p="FallBlock.cs" t="Include" />
+            <e p="FlashOver.cs" t="Include" />
+            <e p="FlippingAnimation.cs" t="Include" />
+            <e p="Living" t="Include">
+              <e p="AudioOnDeath.cs" t="Include" />
+              <e p="AudioOnHit.cs" t="Include" />
+              <e p="AwardOnDeath.cs" t="Include" />
+              <e p="ChangeColorOnDamage.cs" t="Include" />
+              <e p="EffectOnDeath.cs" t="Include" />
+              <e p="ExplosionAnimation.cs" t="Include" />
+              <e p="ExplosionAnimationOnDeath.cs" t="Include" />
+              <e p="IncrDynScoreOnDeath.cs" t="Include" />
+              <e p="IncrFixedScoreOnDeath.cs" t="Include" />
+              <e p="LivingEntity.cs" t="Include" />
+              <e p="ShootOnDeath.cs" t="Include" />
+            </e>
+            <e p="MoveWithAccl.cs" t="Include" />
+            <e p="ShakeAnimation.cs" t="Include" />
+            <e p="SqeExpAnimation.cs" t="Include" />
+            <e p="SwingBlock.cs" t="Include" />
+          </e>
+          <e p="Enemy" t="Include">
+            <e p="AlienShip.cs" t="Include" />
+            <e p="BulletAttacker.cs" t="Include" />
+            <e p="CurveFollower.cs" t="Include" />
+            <e p="EnemyMissile.cs" t="Include" />
+            <e p="FallingBlock.cs" t="Include" />
+            <e p="FollowPather.cs" t="Include" />
+            <e p="IAttacker.cs" t="Include" />
+            <e p="Laser.cs" t="Include" />
+            <e p="LaserAttacker.cs" t="Include" />
+            <e p="RandomAttackEnemy.cs" t="Include" />
+            <e p="Stage-1" t="Include">
+              <e p="Astronaut.cs" t="Include" />
+            </e>
+            <e p="stage-2" t="Include">
+              <e p="CirclePlane.cs" t="Include" />
+              <e p="HelicopBoss.cs" t="Include" />
+              <e p="MultiBeamShooter.cs" t="Include" />
+              <e p="NShapeBoss.cs" t="Include" />
+              <e p="PoopShooter.cs" t="Include" />
+              <e p="RandomMoveEnemy.cs" t="Include" />
+              <e p="RotateLaserShooter.cs" t="Include" />
+              <e p="RunAftShooter.cs" t="Include" />
+              <e p="SpitoutEnemy.cs" t="Include" />
+            </e>
+            <e p="stage-3" t="Include">
+              <e p="BigShootBoss.cs" t="Include" />
+              <e p="BuZhang.cs" t="Include" />
+              <e p="ElectricEnemy.cs" t="Include" />
+              <e p="FireBullet.cs" t="Include" />
+              <e p="FireVibrateShooter.cs" t="Include" />
+              <e p="GaofuV2.cs" t="Include" />
+              <e p="Gear.cs" t="Include" />
+              <e p="Jumper.cs" t="Include" />
+              <e p="RandomBomb.cs" t="Include" />
+              <e p="Sinno.cs" t="Include" />
+              <e p="SoundWave.cs" t="Include" />
+            </e>
+            <e p="stage-4" t="Include">
+              <e p="EnemyTrigger.cs" t="Include" />
+              <e p="EnemyWaveTrigger.cs" t="Include" />
+              <e p="Fan.cs" t="Include" />
+              <e p="FanBar.cs" t="Include" />
+              <e p="FlowBomb.cs" t="Include" />
+              <e p="FlowBombShooter.cs" t="Include" />
+              <e p="FollowerStone.cs" t="Include" />
+              <e p="FourWayShooter.cs" t="Include" />
+              <e p="StartWaveWhenVisible.cs" t="Include" />
+              <e p="StoneHead.cs" t="Include" />
+            </e>
+            <e p="UFOMan.cs" t="Include" />
+            <e p="wave" t="Include">
+              <e p="AbstractEnemyWave.cs" t="Include" />
+              <e p="AbstractEnemyWaveWithReward.cs" t="Include" />
+              <e p="BossWave.cs" t="Include" />
+              <e p="CombinedEnemyWave.cs" t="Include" />
+              <e p="FlashInEnemyWave.cs" t="Include" />
+              <e p="FollowCurveWave.cs" t="Include" />
+              <e p="MultiSourceEnemyWave.cs" t="Include" />
+              <e p="PathEnemyWave.cs" t="Include" />
+              <e p="RandomAppearWave.cs" t="Include" />
+              <e p="SingleEnemyWave.cs" t="Include" />
+            </e>
+          </e>
+          <e p="GameControllers" t="Include">
+            <e p="AbstractGameFlowCtrl.cs" t="Include" />
+            <e p="GameOver.cs" t="Include" />
+            <e p="GameStart.cs" t="Include" />
+            <e p="GameWin.cs" t="Include" />
+            <e p="practice-stage" t="Include">
+              <e p="PracticeStageController.cs" t="Include" />
+              <e p="Spawner.cs" t="Include" />
+              <e p="WeaponBlockSpawner.cs" t="Include" />
+            </e>
+            <e p="RewardManager.cs" t="Include" />
+            <e p="RewardSpawner.cs" t="Include" />
+            <e p="StageIntro.cs" t="Include" />
+            <e p="StageOneController.cs" t="Include" />
+            <e p="StageThreeController.cs" t="Include" />
+            <e p="StageTwoController.cs" t="Include" />
+            <e p="SwitchGunManager.cs" t="Include" />
+          </e>
+          <e p="Gun" t="Include">
+            <e p="Bullet" t="Include">
+              <e p="EnergyBurst.cs" t="Include" />
+              <e p="LightningBullet.cs" t="Include" />
+              <e p="RingBullet.cs" t="Include" />
+              <e p="TrackingBullet.cs" t="Include" />
+            </e>
+            <e p="EnergyBall.cs" t="Include" />
+            <e p="EnergyBurstGun.cs" t="Include" />
+            <e p="Gun.cs" t="Include" />
+            <e p="GunConstants.cs" t="Include" />
+            <e p="LightningGun.cs" t="Include" />
+            <e p="RingGun.cs" t="Include" />
+            <e p="SideGun.cs" t="Include" />
+          </e>
+          <e p="Player.cs" t="Include" />
+          <e p="PlayerComponent" t="Include">
+            <e p="GunManager.cs" t="Include" />
+            <e p="PlayerCollector.cs" t="Include" />
+            <e p="WeaponDispatcher.cs" t="Include" />
+          </e>
+          <e p="Static" t="Include">
+            <e p="Difficulty.cs" t="Include" />
+            <e p="GlobalConfig.cs" t="Include" />
+            <e p="GunStore.cs" t="Include" />
+            <e p="HistoryStore.cs" t="Include" />
+            <e p="LifeCtrl.cs" t="Include" />
+            <e p="ScoreCtrl.cs" t="Include" />
+            <e p="StageCtrl.cs" t="Include" />
+            <e p="Utils.cs" t="Include" />
+            <e p="WeaponStoreCtrl.cs" t="Include" />
+          </e>
+          <e p="UI" t="Include">
+            <e p="GunStatusDisplay.cs" t="Include" />
+            <e p="HealthBar.cs" t="Include" />
+            <e p="LevelDisplay.cs" t="Include" />
+            <e p="LifeDisplay.cs" t="Include" />
+            <e p="LifeUpSignal.cs" t="Include" />
+            <e p="PlayerHealthDisplay.cs" t="Include" />
+            <e p="QuitConfirmDialog.cs" t="Include" />
+            <e p="ScoreDisplay.cs" t="Include" />
+            <e p="ScrollBackground.cs" t="Include" />
+            <e p="VolumeSlider.cs" t="Include" />
+            <e p="WeaponStoreDisplay.cs" t="Include" />
+          </e>
+          <e p="Weapons" t="Include">
+            <e p="BackMissle.cs" t="Include" />
+            <e p="FireballChain.cs" t="Include" />
+            <e p="RingProtector.cs" t="Include" />
+            <e p="Shield.cs" t="Include" />
+            <e p="SingleFireball.cs" t="Include" />
+            <e p="SliderProtector.cs" t="Include" />
+            <e p="TimedWeapon.cs" t="Include" />
+            <e p="WeaponConstants.cs" t="Include" />
+          </e>
+        </e>
+      </e>
+      <e p="Library" t="ExcludeRecursive" />
+      <e p="obj" t="ExcludeRecursive" />
+      <e p="packages" t="ExcludeRecursive" />
+      <e p="Temp" t="ExcludeRecursive">
+        <e p="bin" t="ExcludeRecursive" />
+      </e>
+      <e p="unity-falling-block-game.sln" t="IncludeFlat" />
+    </e>
+    <e p="$USER_HOME$/Library/Caches/Rider2018.1/resharper-host/local/Transient/ReSharperHost/v12/SolutionCaches/_unity-falling-block-game.2029365575.00" t="ExcludeRecursive" />
+  </component>
+</project>

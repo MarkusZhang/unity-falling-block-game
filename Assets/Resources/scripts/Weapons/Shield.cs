@@ -11,6 +11,16 @@ public class Shield : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 		damageTaken = 0;
+		var player = GameObject.FindGameObjectWithTag("player");
+		if (player != null)
+		{
+			transform.parent = player.transform;
+			transform.position = player.transform.position;
+		}
+		else
+		{
+			Destroy(gameObject);
+		}
 	}
 	
 	// Update is called once per frame

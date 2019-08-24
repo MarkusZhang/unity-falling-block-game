@@ -19,6 +19,7 @@ public class RingProtector : TimedWeapon {
 		currentAngle = 0;
 		radius = initialRadius;
 		player = GameObject.FindGameObjectWithTag ("player").transform;
+		transform.parent = player;
 
 		StartCoroutine (ChangeRadius ());
 	}

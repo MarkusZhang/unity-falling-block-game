@@ -20,9 +20,15 @@ GameObject:
   m_Component:
   - component: {fileID: 4815787859344028}
   - component: {fileID: 212754130313345826}
-  - component: {fileID: 61113813228818684}
   - component: {fileID: 50552996039233522}
   - component: {fileID: 114045737929109984}
+  - component: {fileID: 114676308475121818}
+  - component: {fileID: 114136719865070460}
+  - component: {fileID: 114397830525869240}
+  - component: {fileID: 58307759533307030}
+  - component: {fileID: 114983629823574128}
+  - component: {fileID: 114417959087167530}
+  - component: {fileID: 114387559940923268}
   m_Layer: 0
   m_Name: player
   m_TagString: player
@@ -38,7 +44,7 @@ Transform:
   m_GameObject: {fileID: 1395003987669024}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0.2, y: -4.15, z: 0}
-  m_LocalScale: {x: 0.5, y: 0.5, z: 1}
+  m_LocalScale: {x: 0.13, y: 0.13, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
@@ -63,8 +69,8 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
---- !u!61 &61113813228818684
-BoxCollider2D:
+--- !u!58 &58307759533307030
+CircleCollider2D:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
@@ -75,19 +81,9 @@ BoxCollider2D:
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0.040543318, y: -0.060814857}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 3.54, y: 3.01}
-    newSize: {x: 3.54, y: 3.01}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
+  m_Offset: {x: 0, y: -0.91626096}
   serializedVersion: 2
-  m_Size: {x: 3.1345687, y: 2.8883705}
-  m_EdgeRadius: 0
+  m_Radius: 3.4707253
 --- !u!114 &114045737929109984
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -100,6 +96,93 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   startingHealth: 5
+  leftSideGun: {fileID: 0}
+  gunManager: {fileID: 0}
+  startHideTime: 2
+  sideGunPrefab: {fileID: 1909882520971520, guid: 15cb37138c3fc4e739136e08171e0cb3,
+    type: 2}
+--- !u!114 &114136719865070460
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6139dc2b89b37484f8f283d9dd83de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 114630110765297210, guid: ad57608c300bc4e24be8819f2e6ecf70,
+    type: 2}
+  animationLength: 1.5
+--- !u!114 &114387559940923268
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4cb5cca45767844d3a7c7d3f1676f017, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  damage: 2
+  limitedNumDamages: 0
+  numDamages: 0
+  targetTags:
+  - enemy
+  exceptTags: []
+  tagsToDestroy: []
+  destroyEffect: {fileID: 0}
+--- !u!114 &114397830525869240
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: a6b343a5499964140af6b73fc42bcbbc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorWhenDamage: {r: 1, g: 0, b: 0, a: 1}
+  changeColorSeconds: 0.1
+  keepFullOpacity: 1
+--- !u!114 &114417959087167530
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d4ce91624cb744a80b2c54b9be0becec, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: player-hit
+--- !u!114 &114676308475121818
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6c96395bf413a4f7eae9970c7b69d5ab, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &114983629823574128
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1395003987669024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e11228f3c7749f6ad30b62bb8b9466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: player-death
 --- !u!212 &212754130313345826
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -133,13 +216,13 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: c6c70e7c406f24524aef8b327c8ad691, type: 3}
+  m_SortingOrder: 2
+  m_Sprite: {fileID: 21300000, guid: f280d6e8c6d1545e6acd710cb5a1b38b, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
   m_DrawMode: 0
-  m_Size: {x: 3.54, y: 3.01}
+  m_Size: {x: 10.24, y: 10.24}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
   m_WasSpriteAssigned: 1

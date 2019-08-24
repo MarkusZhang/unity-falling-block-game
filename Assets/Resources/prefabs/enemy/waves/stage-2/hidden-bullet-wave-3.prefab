@@ -1,0 +1,127 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1077947634088954}
+  m_IsPrefabParent: 1
+--- !u!1 &1077947634088954
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4453230703704142}
+  - component: {fileID: 114151561811769234}
+  m_Layer: 0
+  m_Name: hidden-bullet-wave-3
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1394971949900048
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4228607507279424}
+  m_Layer: 0
+  m_Name: src2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1540600249494702
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4174008156710728}
+  m_Layer: 0
+  m_Name: src1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4174008156710728
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1540600249494702}
+  m_LocalRotation: {x: -0, y: -0, z: 0.48068056, w: 0.8768958}
+  m_LocalPosition: {x: -7.42, y: -2.69, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4453230703704142}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 57.460003}
+--- !u!4 &4228607507279424
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1394971949900048}
+  m_LocalRotation: {x: -0, y: -0, z: 0.57139677, w: 0.82067394}
+  m_LocalPosition: {x: -7.19, y: -0.8299999, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4453230703704142}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 69.695}
+--- !u!4 &4453230703704142
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077947634088954}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.02, y: 2.1283102, z: 5.4006147}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 4174008156710728}
+  - {fileID: 4228607507279424}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114151561811769234
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1077947634088954}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 47e4883ef06c7496a8151612619ee185, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awardPrefab: {fileID: 0}
+  awardAfterNumEnemiesKilled: 0
+  awardTimeLimit: 0
+  configs:
+  - enemyPrefab: {fileID: 1093489154766884, guid: b907535cf7bff4159bb6523dde79ac81,
+      type: 2}
+    sourceTrans: {fileID: 4174008156710728}
+    numToGenerate: 2
+    generateInterval: 0.5
+    fallSpeed: 10
+  - enemyPrefab: {fileID: 1093489154766884, guid: b907535cf7bff4159bb6523dde79ac81,
+      type: 2}
+    sourceTrans: {fileID: 4228607507279424}
+    numToGenerate: 1
+    generateInterval: 0.5
+    fallSpeed: 10

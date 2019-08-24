@@ -84,6 +84,6 @@ MonoBehaviour:
     type: 2}
   muzzles:
   - {fileID: 4444929622556630}
-  defaultShootInterval: 0.2
+  defaultShootInterval: 0.3
   shootLimit: -1
   shootAudioName: wide-bullet

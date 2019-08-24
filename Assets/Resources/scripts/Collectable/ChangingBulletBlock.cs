@@ -9,33 +9,49 @@ public class ChangingBulletBlock : MonoBehaviour {
 	public float typeSwitchInterval = 1f; // seconds between weapon switching
 	public int numBulletsAwarded = 50;
 
-
+	private GunType[] allTypes = new GunType[]{GunType.Spray,GunType.Ring,GunType.Wide};
+	private GunType currentType;
+	
 	// Use this for initialization
 	void Start () {
-		GunType type = GetRandomType ();
-		SetCollectableType (type);
-		gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (type));
+//		currentType = GetRandomType ();
+		Debug.Assert(allTypes.Length>0);
+		currentType = allTypes[0];
+		SetCollectableType (currentType);
+		gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (currentType));
 		StartCoroutine (SwitchType ());
 	}
 
 
 	IEnumerator SwitchType(){
 		while (true) {
-			GunType type = GetRandomType ();
-			SetCollectableType (type);
-			gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (type));
+			currentType = GetNextType ();
+			SetCollectableType (currentType);
+			gameObject.GetComponent<SpriteRenderer> ().sprite = Resources.Load<Sprite> (TypeToImageName (currentType));
 			yield return new WaitForSeconds (typeSwitchInterval);
 		}
 	}
 
-	GunType GetRandomType(){
-		float rand = Random.Range (0, 1f);
-		if (rand <= 0.3f)
-			return GunType.Spray;
-		else if (rand <= 0.7f)
-			return GunType.Wide;
-		else
-			return GunType.Ring;
+//	GunType GetRandomType(){
+//		float rand = Random.Range (0, 1f);
+//		if (rand <= 0.3f)
+//			return GunType.Spray;
+//		else if (rand <= 0.7f)
+//			return GunType.Wide;
+//		else
+//			return GunType.Ring;
+//	}
+
+	GunType GetNextType()
+	{
+		for (int i = 0; i < allTypes.Length; i++)
+		{
+			if (allTypes[i] == currentType)
+			{
+				return allTypes[(i + 1) % allTypes.Length];
+			}
+		}
+		throw new UnityException("ChangeBulletBlock: Cannot get next gun type");
 	}
 
 	string TypeToImageName(GunType type){
@@ -49,7 +65,7 @@ public class ChangingBulletBlock : MonoBehaviour {
 
 	void SetCollectableType(GunType type){
 		Collectable c = gameObject.GetComponent<Collectable> ();
-		c.name = type.ToString ();
+		c.cname = type.ToString ();
 		c.param = numBulletsAwarded.ToString();
 	}
 }

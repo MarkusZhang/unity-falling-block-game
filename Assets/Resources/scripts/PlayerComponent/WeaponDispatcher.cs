@@ -14,19 +14,18 @@ public class WeaponDispatcher : MonoBehaviour {
 
 	void Awake(){
 		instance = this;
-		player = GameObject.FindGameObjectWithTag ("player").transform;
 	}
 
 	public void DispatchWeapon(WeaponType type){
 		switch (type){
 			case WeaponType.RingProtector:
-				Instantiate (ringProtectorPrefab, player);
+				Instantiate (ringProtectorPrefab);
 				break;
 			case WeaponType.BackMissle:
 				Instantiate (backMisslePrefab);
 					break;
 			case WeaponType.SolidShield:
-				Instantiate (shieldPrefab, player);
+				Instantiate(shieldPrefab);
 				break;
 			case WeaponType.SliderProtector:
 				Instantiate (sliderProtectorPrefab);

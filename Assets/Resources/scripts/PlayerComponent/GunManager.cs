@@ -10,41 +10,54 @@ public class GunManager : MonoBehaviour {
 	public GunType currentGunType;
 	public GameObject currentGunObject;
 
+	public int defaultBulletPowerLevel = 1;
+	
 	Transform parentTransform;
+	
 	float relativeShootSpeed = 1;
+	private int bulletPowerLevel; // how big is the bullet, and how much damage power
 
-	void Start(){
-		GunStore.AddGun (GunType.Default, -1);
-		GunStore.AddGun (GunType.Ring, 25);
-		GunStore.AddGun (GunType.Spray, 25);
-		GunStore.AddGun (GunType.Wide, 25);
-		// use default gun
-		SetCurrentGun(GunType.Default);
+	private float rollbackBulletPowerTime;
+	private bool isInBoostedPower;
+
+	void Start()
+	{
+		GunStore.OnSwitchGun += switchGun;
 	}
 	
-	public void Shoot(){
-		if (currentGun.Shoot ()) {
-			GunStore.ConsumeBullet ();
+	public void Initialize(Transform parent)
+	{
+		parentTransform = parent;
+		isInBoostedPower = false;
+		bulletPowerLevel = defaultBulletPowerLevel;
+		SetCurrentGun(GunStore.currentGunType);
+	}
+
+	public void Shoot()
+	{
+		if (isInBoostedPower && Time.time > rollbackBulletPowerTime)
+		{
+			SetBulletPowerLevel(defaultBulletPowerLevel);
+			isInBoostedPower = false;
+		}
+
+		if (currentGun.Shoot())
+		{
+			GunStore.ConsumeBullet();
 		}
 	}
 
-	// switch to next gun in `allGuns`
-	public void SwitchGun(){
-		GunType type = GunStore.SwitchGun ();
-		_SwitchGun (type);
-	}
-
-	public void SwitchGun(GunType type){
-		GunStore.SwitchGun (type);
-		_SwitchGun (type);
-	}
-
 	// internal switching procedure
-	void _SwitchGun(GunType type){
+	void switchGun()
+	{
+		var type = GunStore.currentGunType; 
 		if (type != currentGunType) {
 			Destroy (currentGunObject);
 			SetCurrentGun (type);
-			AudioManager.instance.PlaySound (AudioStore.instance.switchGun);
+			if (AudioManager.instance != null)
+			{
+				AudioManager.instance.PlaySound (AudioStore.instance.switchGun);
+			}
 		}
 	}
 
@@ -55,32 +68,56 @@ public class GunManager : MonoBehaviour {
 
 	void SetCurrentGun(GunType type){
 		currentGunObject = TypeToGunObject(type);
-		currentGun = currentGunObject.GetComponent<Gun> ();
-		currentGun.ChangeShootSpeedByRatio (relativeShootSpeed);
-		currentGunType = type;
-		GunStore.OnBulletLimitReached += OnShootLimitReached;
+		if (currentGunObject != null)
+		{
+			currentGun = currentGunObject.GetComponent<Gun> ();
+			currentGun.ChangeShootSpeedByRatio (relativeShootSpeed);
+			SetBulletPowerLevel(bulletPowerLevel);
+			currentGunType = type;
+			GunStore.OnBulletLimitReached += OnShootLimitReached;
+		}
 	}
 
 	GameObject TypeToGunObject(GunType type){
 		GameObject gunObject;
-		Transform parent = GameObject.Find("player").transform;
-		Debug.Assert (parent != null, "GunManager: cannot find the player");
-		if (type == GunType.Default) {
-			gunObject = Resources.Load ("Prefabs/guns/default-gun") as GameObject;
-		} else if (type == GunType.Spray) {
-			gunObject = Resources.Load ("Prefabs/guns/spray-gun") as GameObject;
-		} else if (type == GunType.Wide) { // assume wide gun
-			gunObject = Resources.Load ("Prefabs/guns/wide-gun") as GameObject;
-		} else if (type == GunType.Ring) {
-			gunObject = Resources.Load ("Prefabs/guns/ring-gun") as GameObject;
-		} else {
-			throw new UnityException (type + " is not a valid guntype");
+		var prefabName = GunConstants.typeToPrefabName[type];
+		gunObject = Resources.Load (prefabName) as GameObject;
+
+		if (parentTransform != null)
+		{
+			return Instantiate (gunObject, parentTransform);
 		}
-		return Instantiate (gunObject, parent);
+		
+		return null;
 	}
 
 	public void SetRelativeShootSpeed(float value){
 		relativeShootSpeed = value;
-		currentGun.ChangeShootSpeedByRatio (relativeShootSpeed);
+		if (currentGun != null)
+		{
+			currentGun.ChangeShootSpeedByRatio (relativeShootSpeed);
+		}
+	}
+
+	public void SetBulletPowerLevel(int value)
+	{
+		Debug.Assert(value >= 1);
+		currentGun.bulletDamageMultiplier = value;
+		currentGun.bulletScale = 1 + 0.5f * (value-1);
+		bulletPowerLevel = value;
+	}
+
+	public void BoostBulletPowerWithTimeLimit(int boost, float timeLimit)
+	{
+		// new power-up
+		bulletPowerLevel += boost;
+		SetBulletPowerLevel(bulletPowerLevel);
+		isInBoostedPower = true;
+		rollbackBulletPowerTime = Time.time + timeLimit;
+	}
+
+	private void OnDestroy()
+	{
+		GunStore.OnSwitchGun -= switchGun;
 	}
 }

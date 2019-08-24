@@ -9,7 +9,7 @@ EditorBuildSettings:
     path: Assets/Resources/scenes/start-scene.unity
     guid: 623eff0f59bd25043abf6e191a121dcc
   - enabled: 1
-    path: Assets/Resources/scenes/play-scene.unity
+    path: Assets/Resources/scenes/practice-scene.unity
     guid: 3d92eea0654bdc543847a46d4802ed8f
   - enabled: 1
     path: Assets/Resources/scenes/game-win.unity
@@ -17,3 +17,21 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Resources/scenes/game-over.unity
     guid: 82af0feb87ba742d6adaab90af05630c
+  - enabled: 1
+    path: Assets/Resources/scenes/help-scene.unity
+    guid: 2ced7f0c679794e5c83a131e97e3980e
+  - enabled: 1
+    path: Assets/Resources/scenes/stage-intro-scene.unity
+    guid: 9effbe82ff3b045b585db607c68a0f4b
+  - enabled: 1
+    path: Assets/Resources/scenes/stage-1.unity
+    guid: d1e509df0829e462c89e6cb33303d67c
+  - enabled: 1
+    path: Assets/Resources/scenes/stage-2.unity
+    guid: 7755dd00654aa486dbcf760dd08de62a
+  - enabled: 1
+    path: Assets/Resources/scenes/stage-3.unity
+    guid: 763a7a735c6474e07a473f7bbe4775e7
+  - enabled: 1
+    path: Assets/Resources/scenes/stage-4.unity
+    guid: 7dfc6b2b9c1824bc6900afbb0288e4cb

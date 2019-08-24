@@ -4,7 +4,6 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - projectile
   - player
   - weapon
   - ui-ring-protector
@@ -12,9 +11,15 @@ TagManager:
   - enemy:bullet
   - enemy:falling-block
   - enemy:boss
-  - bullet
   - enemy:alien-ship
   - enemy:tracking-missile
+  - enemy:guard
+  - enemy:laser
+  - player:burst
+  - enemy:burst
+  - ui:volume-slider
+  - projectile
+  - substage
   layers:
   - Default
   - TransparentFX
@@ -49,6 +54,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
+  - name: background
+    uniqueID: 3978219481
+    locked: 0
   - name: Default
     uniqueID: 0
+    locked: 0
+  - name: Upper
+    uniqueID: 1297850445
+    locked: 0
+  - name: effect
+    uniqueID: 1767712031
     locked: 0

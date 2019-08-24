@@ -15,9 +15,11 @@ public class Gun : MonoBehaviour {
 
 	private float lastShootTime;
 	float shootInterval;
+	public float bulletScale = 1;
+	public int bulletDamageMultiplier = 1;
 
 	// Use this for initialization
-	void Start () {
+	protected virtual void Start () {
 		lastShootTime = Time.time;
 		bool isShootIntervalAssigned = shootInterval != 0;
 		if (!isShootIntervalAssigned) {
@@ -26,16 +28,17 @@ public class Gun : MonoBehaviour {
 	}
 
 	// return true if the shot is made
-	public bool Shoot(){
+	public virtual bool Shoot(){
 		if (Time.time - lastShootTime > shootInterval) {
 			lastShootTime = Time.time;
 			foreach (Transform muzzle in muzzles) {
-				GameObject bullet = Instantiate (bulletPrefab, muzzle.position, muzzle.rotation);
+				InstantiateBullet(muzzle);
 			}
 
 			// shoot sound
-			AudioManager.instance.PlaySound (AudioStore.instance.GetAudioSourceByName(shootAudioName));
-
+			if (shootAudioName != null && shootAudioName != "" && AudioManager.instance != null) {
+				AudioManager.instance.PlaySound (shootAudioName);
+			}
 			// check shoot limit
 			if (shootLimit > 0) {
 				shootLimit--;
@@ -53,12 +56,15 @@ public class Gun : MonoBehaviour {
 		}
 	}
 
-	public int GetNumShotsLeft(){
-		return shootLimit;
-	}
-
-	public void SetNumShotLeft(int value){
-		shootLimit = value;
+	public virtual void InstantiateBullet(Transform muzzle)
+	{
+		GameObject bullet = Instantiate (bulletPrefab, muzzle.position, muzzle.rotation);
+		bullet.transform.localScale = bulletScale * bullet.transform.localScale;
+		var bulletDamager = bullet.GetComponent<Damager>();
+		if (bulletDamager != null)
+		{
+			bulletDamager.damage *= bulletDamageMultiplier;
+		}
 	}
 
 	public void ChangeShootSpeedByRatio(float ratio){

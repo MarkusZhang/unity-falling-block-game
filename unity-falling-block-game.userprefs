@@ -1,20 +1,14 @@
 ﻿<Properties StartupItem="Assembly-CSharp.csproj">
   <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
-  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/scripts/ExplodeOnDeath.cs">
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets/Resources/scripts/AudioStore.cs">
     <Files>
-      <File FileName="Assets/Resources/scripts/ExplodeOnDeath.cs" Line="26" Column="35" />
-      <File FileName="Assets/Resources/scripts/ExplosionAnimation.cs" Line="33" Column="3" />
-      <File FileName="Assets/Resources/scripts/Damager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/scripts/Enemy/Boss.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/scripts/Enemy/AlienShip.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/scripts/GameFlowManager.cs" Line="1" Column="1" />
-      <File FileName="Assets/Resources/scripts/LivingEntity.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/scripts/AudioStore.cs" Line="49" Column="41" />
+      <File FileName="Assets/Resources/scripts/Weapons/SingleFireball.cs" Line="1" Column="1" />
+      <File FileName="Assets/Resources/scripts/Static/GunStore.cs" Line="106" Column="31" />
     </Files>
   </MonoDevelop.Ide.Workbench>
   <MonoDevelop.Ide.DebuggingService.Breakpoints>
-    <BreakpointStore>
-      <Breakpoint file="/Users/jiezhang/Documents/GitHub/unity-falling-block-game/Assets/Resources/scripts/UI/GunStatusDisplay.cs" line="17" column="1" />
-    </BreakpointStore>
+    <BreakpointStore />
   </MonoDevelop.Ide.DebuggingService.Breakpoints>
   <MonoDevelop.Ide.DebuggingService.PinnedWatches />
 </Properties>

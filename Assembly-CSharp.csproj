@@ -2,13 +2,15 @@
 <Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup>
     <LangVersion>4</LangVersion>
+    <ProjectTypeGuids>{E097FAD1-6243-4DAD-9C02-E9B9EFC3FFC1};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
   </PropertyGroup>
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
     <ProductVersion>10.0.20506</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
-    <RootNamespace></RootNamespace>
+    <RootNamespace>
+    </RootNamespace>
     <ProjectGuid>{F6F5383E-6F08-2F34-67CC-AA50D0A592EA}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
@@ -39,99 +41,203 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.XML" />
+    <Reference Include="System.Xml" />
     <Reference Include="System.Core" />
     <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="UnityEngine">
-      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine.dll</HintPath>
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
     </Reference>
     <Reference Include="UnityEditor">
       <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEditor.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
-     <Compile Include="Assets\Resources\scripts\Bullet\EnemyBullet.cs" />
-     <Compile Include="Assets\Resources\scripts\Bullet\PlayerBullet.cs" />
-     <Compile Include="Assets\Resources\scripts\Bullet\RingBullet.cs" />
-     <Compile Include="Assets\Resources\scripts\Collectable\ChangingBulletBlock.cs" />
-     <Compile Include="Assets\Resources\scripts\Collectable\ChangingWeaponBlock.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\Collectable.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\Collector.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\Damager.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\FallBlock.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\LivingEntity.cs" />
-     <Compile Include="Assets\Resources\scripts\Commons\SwingBlock.cs" />
-     <Compile Include="Assets\Resources\scripts\Enemy\AlienShip.cs" />
-     <Compile Include="Assets\Resources\scripts\Enemy\Boss.cs" />
-     <Compile Include="Assets\Resources\scripts\Enemy\FallingBlock.cs" />
-     <Compile Include="Assets\Resources\scripts\GameEnd\GameWin.cs" />
-     <Compile Include="Assets\Resources\scripts\GameFlowManager.cs" />
-     <Compile Include="Assets\Resources\scripts\GameStart.cs" />
-     <Compile Include="Assets\Resources\scripts\Gun\Gun.cs" />
-     <Compile Include="Assets\Resources\scripts\Gun\GunConstants.cs" />
-     <Compile Include="Assets\Resources\scripts\Player.cs" />
-     <Compile Include="Assets\Resources\scripts\PlayerCollector.cs" />
-     <Compile Include="Assets\Resources\scripts\PlayerComponent\GunManager.cs" />
-     <Compile Include="Assets\Resources\scripts\PlayerComponent\WeaponDispatcher.cs" />
-     <Compile Include="Assets\Resources\scripts\Spawner\Spawner.cs" />
-     <Compile Include="Assets\Resources\scripts\Spawner\WeaponBlockSpawner.cs" />
-     <Compile Include="Assets\Resources\scripts\Static\Difficulty.cs" />
-     <Compile Include="Assets\Resources\scripts\Static\GunStore.cs" />
-     <Compile Include="Assets\Resources\scripts\Static\ScoreCtrl.cs" />
-     <Compile Include="Assets\Resources\scripts\Static\WeaponStoreCtrl.cs" />
-     <Compile Include="Assets\Resources\scripts\UI\GunStatusDisplay.cs" />
-     <Compile Include="Assets\Resources\scripts\UI\LevelDisplay.cs" />
-     <Compile Include="Assets\Resources\scripts\UI\PlayerHealthDisplay.cs" />
-     <Compile Include="Assets\Resources\scripts\UI\ScoreDisplay.cs" />
-     <Compile Include="Assets\Resources\scripts\UI\WeaponStoreDisplay.cs" />
-     <Compile Include="Assets\Resources\scripts\Utils.cs" />
-     <Compile Include="Assets\Resources\scripts\VisualEffects\ExplodeOnDeath.cs" />
-     <Compile Include="Assets\Resources\scripts\VisualEffects\ExplosionAnimation.cs" />
-     <Compile Include="Assets\Resources\scripts\VisualEffects\FlashOver.cs" />
-     <Compile Include="Assets\Resources\scripts\WeaponConstants.cs" />
-     <Compile Include="Assets\Resources\scripts\Weapons\RingProtector.cs" />
-     <Compile Include="Assets\Resources\scripts\Weapons\Shield.cs" />
-     <Compile Include="Assets\Resources\scripts\Weapons\SliderProtector.cs" />
-     <Compile Include="Assets\Resources\scripts\Weapons\TimedWeapon.cs" />
-     <None Include="Assets\Standard Assets\CrossPlatformInput\CrossPlatformInputGuidelines.txt" />
- <Reference Include="UnityEngine.UIAutomation">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.TestRunner">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
- </Reference>
- <Reference Include="nunit.framework">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Networking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.UI">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Timeline">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.GoogleAudioSpatializer">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.HoloLens">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.SpatialTracking">
- <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Analytics">
- <HintPath>/Users/jiezhang/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
- </Reference>
- <Reference Include="UnityEngine.Purchasing">
- <HintPath>/Users/jiezhang/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
- </Reference>
+    <Compile Include="Assets\BounceLaser.cs" />
+    <Compile Include="Assets\Resources\scripts\_\BezierCurve.cs" />
+    <Compile Include="Assets\Resources\scripts\Audio\AudioManager.cs" />
+    <Compile Include="Assets\Resources\scripts\Audio\AudioStore.cs" />
+    <Compile Include="Assets\Resources\scripts\Collectable\ChangingBulletBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Collectable\ChangingWeaponBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Collectable.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Collector.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Damager.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\DestroyWhenGoingOffScreen.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\FallBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\FlashOver.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\FlippingAnimation.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\AudioOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\AudioOnHit.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\AwardOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\ChangeColorOnDamage.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\EffectOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\ExplosionAnimation.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\ExplosionAnimationOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\IncrDynScoreOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\IncrFixedScoreOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\LivingEntity.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\Living\ShootOnDeath.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\MoveWithAccl.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\RotateFallBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\ShakeAnimation.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\SqeExpAnimation.cs" />
+    <Compile Include="Assets\Resources\scripts\Commons\SwingBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\AlienShip.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\BulletAttacker.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\CurveFollower.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\EnemyMissile.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\FallingBlock.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\FollowPather.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\IAttacker.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\Laser.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\LaserAttacker.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\RandomAttackEnemy.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-1\Astronaut.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\CirclePlane.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\HelicopBoss.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\MultiBeamShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\NShapeBoss.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\PoopShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\RandomMoveEnemy.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\RotateLaserShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\RunAftShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-2\SpitoutEnemy.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\BigShootBoss.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\BuZhang.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\ElectricEnemy.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\FireBullet.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\FireVibrateShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\GaofuV2.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\Gear.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\Jumper.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\RandomBomb.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\Sinno.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-3\SoundWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\BlinkEye.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\EnemyTrigger.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\EnemyWaveTrigger.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\EyeBlinkEffect.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\Fan.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\FanBar.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\FlowBomb.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\FlowBombShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\FollowerStone.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\FourWayShooter.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\Leiyibu.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\LeiyibuHead.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\StartWaveWhenVisible.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\stage-4\StoneHead.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\UFOMan.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\AbstractEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\AbstractEnemyWaveWithReward.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\BossWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\CombinedEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\FlashInEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\FollowCurveWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\MultiSourceEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\PathEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\RandomAppearWave.cs" />
+    <Compile Include="Assets\Resources\scripts\Enemy\wave\SingleEnemyWave.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\AbstractGameFlowCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\BackgroundCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\GameOver.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\GameStart.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\GameWin.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\practice-stage\PracticeStageController.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\practice-stage\Spawner.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\practice-stage\WeaponBlockSpawner.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\RewardManager.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\RewardSpawner.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\stage-4\SubStage.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\StageFourController.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\StageIntro.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\StageOneController.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\StageThreeController.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\StageTwoController.cs" />
+    <Compile Include="Assets\Resources\scripts\GameControllers\SwitchGunManager.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\Bullet\EnergyBurst.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\Bullet\LightningBullet.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\Bullet\RingBullet.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\Bullet\TrackingBullet.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\EnergyBall.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\EnergyBurstGun.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\Gun.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\GunConstants.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\LightningGun.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\RingGun.cs" />
+    <Compile Include="Assets\Resources\scripts\Gun\SideGun.cs" />
+    <Compile Include="Assets\Resources\scripts\Player.cs" />
+    <Compile Include="Assets\Resources\scripts\PlayerComponent\GunManager.cs" />
+    <Compile Include="Assets\Resources\scripts\PlayerComponent\PlayerCollector.cs" />
+    <Compile Include="Assets\Resources\scripts\PlayerComponent\WeaponDispatcher.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\Difficulty.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\GlobalConfig.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\GunStore.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\HistoryStore.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\LifeCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\ScoreCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\StageCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\Utils.cs" />
+    <Compile Include="Assets\Resources\scripts\Static\WeaponStoreCtrl.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\GunStatusDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\HealthBar.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\LevelDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\LifeDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\LifeUpSignal.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\PlayerHealthDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\QuitConfirmDialog.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\ScoreDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\VolumeSlider.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\WeaponStoreDisplay.cs" />
+    <Compile Include="Assets\Resources\scripts\UI\WrapAroundBackground.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\BackMissle.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\FireballChain.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\RingProtector.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\Shield.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\SingleFireball.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\SliderProtector.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\TimedWeapon.cs" />
+    <Compile Include="Assets\Resources\scripts\Weapons\WeaponConstants.cs" />
+    <None Include="Assets\Plugins\SuperPivot\HowToUse.txt" />
+    <Reference Include="UnityEngine.UIAutomation">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UIAutomation/UnityEngine.UIAutomation.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.TestRunner">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/UnityEngine.TestRunner.dll</HintPath>
+    </Reference>
+    <Reference Include="nunit.framework">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/TestRunner/net35/unity-custom/nunit.framework.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Networking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Networking/UnityEngine.Networking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.UI">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/GUISystem/UnityEngine.UI.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Timeline">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/Timeline/RuntimeEditor/UnityEngine.Timeline.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.GoogleAudioSpatializer">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityGoogleAudioSpatializer/RuntimeEditor/UnityEngine.GoogleAudioSpatializer.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.HoloLens">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnityHoloLens/RuntimeEditor/UnityEngine.HoloLens.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.SpatialTracking">
+      <HintPath>/Applications/Unity/Unity.app/Contents/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Analytics">
+      <HintPath>/Users/jiezhang/Library/Unity/cache/packages/packages.unity.com/com.unity.analytics@1.0.1/UnityEngine.Analytics.dll</HintPath>
+    </Reference>
+    <Reference Include="UnityEngine.Purchasing">
+      <HintPath>/Users/jiezhang/Library/Unity/cache/packages/packages.unity.com/com.unity.purchasing@1.0.1/UnityEngine.Purchasing.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="Assembly-CSharp-firstpass.csproj">
-      <Project>{AB36D672-4470-26D2-606E-4A20BCADC35E}</Project>      <Name>Assembly-CSharp-firstpass</Name>    </ProjectReference>
+      <Project>{AB36D672-4470-26D2-606E-4A20BCADC35E}</Project>
+      <Name>Assembly-CSharp-firstpass</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
@@ -141,5 +247,224 @@
   <Target Name="AfterBuild">
   </Target>
   -->
-  
+  <ItemGroup>
+    <Reference Include="UnityEngine.AIModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ARModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ARModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.AccessibilityModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AccessibilityModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.AnimationModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AnimationModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.AudioModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.AudioModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ClothModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClothModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ClusterInputModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClusterInputModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ClusterRendererModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ClusterRendererModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.CoreModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CoreModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.CrashReportingModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.CrashReportingModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.DirectorModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.DirectorModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.GameCenterModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.GameCenterModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.GridModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.GridModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.IMGUIModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.IMGUIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ImageConversionModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ImageConversionModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.InputModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.InputModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.JSONSerializeModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.JSONSerializeModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ParticleSystemModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticleSystemModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ParticlesLegacyModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ParticlesLegacyModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.PerformanceReportingModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PerformanceReportingModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.Physics2DModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.Physics2DModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.PhysicsModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.PhysicsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.ScreenCaptureModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.ScreenCaptureModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.SpriteMaskModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.SpriteMaskModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.StyleSheetsModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.StyleSheetsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.TerrainModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.TerrainModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.TerrainPhysicsModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.TerrainPhysicsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.TextRenderingModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.TextRenderingModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.TilemapModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.TilemapModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UIElementsModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UIElementsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UIModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UIModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UNETModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UNETModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityAnalyticsModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityAnalyticsModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityConnectModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityConnectModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityWebRequestAudioModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityWebRequestAudioModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityWebRequestModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityWebRequestModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityWebRequestTextureModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityWebRequestTextureModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.UnityWebRequestWWWModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.UnityWebRequestWWWModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.VRModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.VRModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.VehiclesModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.VehiclesModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.VideoModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.VideoModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.WebModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WebModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine.WindModule">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.WindModule.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Reference Include="UnityEngine">
+      <HintPath>/Applications/Unity/Unity.app/Contents/Managed/UnityEngine/UnityEngine.dll</HintPath>
+    </Reference>
+  </ItemGroup>
 </Project>

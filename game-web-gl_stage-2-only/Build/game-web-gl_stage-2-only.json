@@ -1,0 +1,11 @@
+{
+"TOTAL_MEMORY": 268435456,
+"dataUrl": "game-web-gl_stage-2-only.data.unityweb",
+"asmCodeUrl": "game-web-gl_stage-2-only.asm.code.unityweb",
+"asmMemoryUrl": "game-web-gl_stage-2-only.asm.memory.unityweb",
+"asmFrameworkUrl": "game-web-gl_stage-2-only.asm.framework.unityweb",
+"graphicsAPI": ["WebGL 2.0", "WebGL 1.0"],
+"webglContextAttributes": {"preserveDrawingBuffer": false},
+"splashScreenStyle": "Dark",
+"backgroundColor": "#231F20"
+}

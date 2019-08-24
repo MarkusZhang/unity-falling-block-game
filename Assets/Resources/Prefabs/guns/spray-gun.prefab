@@ -138,12 +138,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 11c67d38dcf0d43ccb9c34ecf17b6fb4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletPrefab: {fileID: 1056825356216352, guid: fa8d294a605de5e44845ea29c270911f,
+  bulletPrefab: {fileID: 1621581131671478, guid: 6eac50bf744274f7b8dbe8051c920992,
     type: 2}
   muzzles:
   - {fileID: 4469669637038328}
   - {fileID: 4954902694058844}
   - {fileID: 4908108353522778}
-  defaultShootInterval: 0.3
+  defaultShootInterval: 0.2
   shootLimit: -1
   shootAudioName: spray-bullet
+  bulletScale: 1
+  bulletDamageMultiplier: 1

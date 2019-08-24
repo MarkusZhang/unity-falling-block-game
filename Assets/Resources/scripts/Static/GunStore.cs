@@ -5,26 +5,51 @@ using System;
 
 public static class GunStore {
 
-	public static GunType currentGunType = GunType.Default;
-	public static int numBulletsLeft = -1; // negative number indicates infinite bullet
-
 	public static event System.Action OnBulletLimitReached;
 	public static event System.Action OnConsumeBullet;
 	public static event System.Action OnSwitchGun;
 
-	static Dictionary<GunType,int> allGuns = new Dictionary<GunType, int> (); //TODO: add default gun as default value
+	public static Dictionary<GunType,int> defaultGuns = new Dictionary<GunType, int>
+	{
+		{GunType.Default,-1},
+		{GunType.Ring,300},
+		{GunType.Burst,30},
+		{GunType.Laser,100},
+		{GunType.Spray,150},
+		{GunType.Wide,150},
+		{GunType.Track,100}
+	};
 
+	// Gun State vars
+	public static GunType currentGunType = GunType.Default;
+	private static int numSideGuns = 0;
+	private static Dictionary<GunType, int> allGuns = defaultGuns;
+
+	public static void AddSideGun()
+	{
+		if (numSideGuns < 2) // at most two side guns
+		{
+			numSideGuns++;
+			if (numSideGuns == 1)
+			{
+				LifeCtrl.OnLifeLost += () => { numSideGuns = 0; }; // side guns should be destroyed on player death
+			}
+		}
+	}
+
+	public static int GetNumSideGuns()
+	{
+		return numSideGuns;
+	}
+	
 	// switch current gun and return new guntype
 	public static GunType SwitchGun(){
 		GunType[] allTypes = new List<GunType> (allGuns.Keys).ToArray();
 
 		for (int i = 0; i < allTypes.Length; i++) {
 			if (allTypes[i] == currentGunType) {
-				allGuns [currentGunType] = numBulletsLeft;
-
 				GunType newGunType = allTypes [(i + 1) % allTypes.Length];
 				currentGunType = newGunType;
-				allGuns.TryGetValue (currentGunType, out numBulletsLeft);
 
 				if (OnSwitchGun != null) {
 					OnSwitchGun ();
@@ -41,7 +66,6 @@ public static class GunStore {
 	public static GunType SwitchGun(GunType type){
 		if (allGuns.ContainsKey (type)) {
 			currentGunType = type;
-			allGuns.TryGetValue (currentGunType, out numBulletsLeft);
 
 			if (OnSwitchGun != null) {
 				OnSwitchGun ();
@@ -53,28 +77,23 @@ public static class GunStore {
 	}
 
 	public static void ConsumeBullet(){
-		bool isBulletInfinite = numBulletsLeft < 0;
+		bool isBulletInfinite = allGuns[currentGunType] < 0;
 
 		if (!isBulletInfinite) {
-			numBulletsLeft--;
+			allGuns[currentGunType]--;
 
-			if (numBulletsLeft == 0) {
+			if (allGuns[currentGunType] == 0) {
 
 				GunType typeToRemove = currentGunType;
-//				Debug.Assert (allGuns.ContainsKey (GunType.Default), "Default gun type missing in allGuns!");
+
 				GunStore.SwitchGun();
 				allGuns.Remove (typeToRemove);
-				// switch back to default
-//				currentGunType = GunType.Default;
-//				allGuns.TryGetValue (currentGunType, out numBulletsLeft);
 
 				// call event listener
 				if (OnBulletLimitReached != null) {
 					OnBulletLimitReached ();
 				}
-//				if (OnSwitchGun != null) {
-//					OnSwitchGun ();
-//				}
+				
 			} else {
 
 				if (OnConsumeBullet != null) {
@@ -103,12 +122,47 @@ public static class GunStore {
 	}
 
 	public static void Reset(){
+		RemoveEventListeners();
+		allGuns = new Dictionary<GunType, int>();
+		foreach(KeyValuePair<GunType, int> entry in defaultGuns)
+		{
+			allGuns[entry.Key] = entry.Value;
+		}
+		currentGunType = GunType.Default;
+		numSideGuns = 0;
+	}
+
+	public static void RemoveEventListeners()
+	{
 		OnBulletLimitReached = null;
 		OnConsumeBullet = null;
 		OnSwitchGun = null;
-		allGuns = new Dictionary<GunType, int> ();
-		currentGunType = GunType.Default;
-		numBulletsLeft = -1;
 	}
 
+
+	public static Dictionary<GunType, int> GetGunStoreStatus()
+	{
+		return allGuns;
+	}
+	
+	// for debugging purpose
+	public static string GetGunStoreStatusStr()
+	{
+		var desc = "";
+		foreach (KeyValuePair<GunType, int> kvp in allGuns)
+		{
+			desc += string.Format("{0}:{1},", kvp.Key.ToString(), kvp.Value);
+		}
+
+		return desc;
+	}
+
+	public static void LoadGunStoreStatus(Dictionary<GunType, int> status)
+	{
+		allGuns = new Dictionary<GunType, int>();
+		foreach(KeyValuePair<GunType, int> entry in status)
+		{
+			allGuns[entry.Key] = entry.Value;
+		}
+	}
 }

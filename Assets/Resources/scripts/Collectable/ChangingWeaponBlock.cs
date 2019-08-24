@@ -40,18 +40,14 @@ public class ChangingWeaponBlock : MonoBehaviour {
 			return WeaponType.SolidShield;
 	}
 
-	string TypeToImageName(WeaponType type){
-		string imageName;
-		WeaponConstants.typeToBlockImgName.TryGetValue (type, out imageName);
-		if (imageName != null)
-			return "images/weapon-blocks/" + imageName;
-		else
-			throw new UnityException (type.ToString () + " is not valid type");
+	string TypeToImageName(WeaponType type)
+	{
+		return WeaponConstants.typeToBlockImgName[type];
 	}
 
 	void SetCollectableType(WeaponType type){
 		Collectable c = gameObject.GetComponent<Collectable> ();
-		c.name = type.ToString ();
+		c.cname = type.ToString ();
 		c.param = "1";
 	}
 }

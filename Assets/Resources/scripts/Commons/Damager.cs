@@ -12,6 +12,7 @@ public class Damager : MonoBehaviour {
 	public string[] exceptTags;
 	// only objects that contain all strings in targetTags, and not any from exceptTags will be damaged
 
+	public string[] tagsToDestroy;
 	public GameObject destroyEffect;
 
 	void Start(){
@@ -24,8 +25,17 @@ public class Damager : MonoBehaviour {
 		if (isDamageable (collider.gameObject) && isDamageTarget (collider.gameObject)) {
 			collider.gameObject.GetComponent<LivingEntity> ().TakeDamage (damage);
 			numDamages--;
+			
 			if (limitedNumDamages && numDamages <= 0) {
 				DestroySelf ();
+			}
+		}
+
+		foreach (var tag in tagsToDestroy)
+		{
+			if (collider.gameObject.tag.Contains(tag))
+			{
+				Destroy(collider.gameObject);
 			}
 		}
 	}

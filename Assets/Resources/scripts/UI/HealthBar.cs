@@ -14,7 +14,7 @@ public class HealthBar : MonoBehaviour {
 
 	public void AttachToLivingEntity(LivingEntity entity){
 		maxHealth = entity.startingHealth;
-		entity.OnHealthChange += () => UpdateHealthBar (entity.GetHealth());
+		entity.OnTakeDamage += () => UpdateHealthBar (entity.GetHealth());
 		entity.OnDeath += () => Destroy (gameObject);
 	}
 }

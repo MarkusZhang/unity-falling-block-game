@@ -1,0 +1,68 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 1623264419814994}
+  m_IsPrefabParent: 1
+--- !u!1 &1623264419814994
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4943056496106464}
+  - component: {fileID: 114886048435338766}
+  m_Layer: 0
+  m_Name: helicop-wave
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &4943056496106464
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623264419814994}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.1801367, y: 0.016867561, z: 5.3880625}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &114886048435338766
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1623264419814994}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cd45de759c023443aa475f1b6dd3ba9e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  awardPrefab: {fileID: 1887422888299254, guid: f16b61101dcb94cf69307bb4b4c626f6,
+    type: 2}
+  awardAfterNumEnemiesKilled: 4
+  awardTimeLimit: 0
+  enemyPrefab: {fileID: 1577310249348392, guid: 2bfa94df1048a467d970309ff6a0f962,
+    type: 2}
+  curve: {fileID: 114544681779157992, guid: 6861e2317180d4d5e99abbe7e17bd774, type: 2}
+  numToGen: 4
+  genInterval: 3
+  moveInterval: 0.02
+  moveStepSize: 0.008
+  rotateWithPath: 0
+  colorConfig:
+    useCustomColor: 0
+    color: {r: 0, g: 0, b: 0, a: 0}

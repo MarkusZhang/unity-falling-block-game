@@ -13,6 +13,7 @@ public class LevelDisplay : MonoBehaviour {
 			levelUI = GameObject.Find ("level-display").GetComponent<Text>();
 		}
 		ScoreCtrl.OnLevelChange += UpdateUI;
+		UpdateUI();
 	}
 
 	void UpdateUI () {

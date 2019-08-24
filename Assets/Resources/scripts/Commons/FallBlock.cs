@@ -12,17 +12,5 @@ public class FallBlock : MonoBehaviour {
 	void Update () {
 		Vector2 moveDir = moveDown ? Vector2.down : Vector2.up;
 		transform.Translate (moveDir * fallingSpeed * Time.deltaTime);
-
-		if (moveDown) {
-			// check if it has passed the bottom
-			if (transform.position.y < -Camera.main.orthographicSize) {
-				Destroy (gameObject);
-			}
-		} else {
-			// check if it has passed the top
-			if (transform.position.y > Camera.main.orthographicSize) {
-				Destroy (gameObject);
-			}
-		}
 	}
 }
