@@ -25,6 +25,7 @@ GameObject:
   - component: {fileID: 50395104366472028}
   - component: {fileID: 114481999732501766}
   - component: {fileID: 114329416104721278}
+  - component: {fileID: 114668029560804156}
   m_Layer: 0
   m_Name: flow-bomb-shooter
   m_TagString: enemy:guard
@@ -131,6 +132,20 @@ MonoBehaviour:
   genInterval: 1
   flowBombPrefab: {fileID: 1043919287811894, guid: 271352d9bd1084904b038d3bc7bf33e4,
     type: 2}
+--- !u!114 &114668029560804156
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1606290782563760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6139dc2b89b37484f8f283d9dd83de6a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  explosionEffect: {fileID: 114844791937328816, guid: f85e4d4a5103644db89b644df32a6c46,
+    type: 2}
+  animationLength: 0.8
 --- !u!212 &212135479553168724
 SpriteRenderer:
   m_ObjectHideFlags: 1

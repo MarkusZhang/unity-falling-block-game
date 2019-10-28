@@ -71,6 +71,7 @@ GameObject:
   - component: {fileID: 114675168212703772}
   - component: {fileID: 114828360488814172}
   - component: {fileID: 114787349973990068}
+  - component: {fileID: 114987940349303776}
   m_Layer: 0
   m_Name: stone-head
   m_TagString: enemy:boss
@@ -488,6 +489,18 @@ MonoBehaviour:
   eyes:
   - {fileID: 4320930756910186}
   - {fileID: 4477699750183436}
+--- !u!114 &114987940349303776
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473239960555932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0d916558bf331478b908640e5943829b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  multiplier: 150
 --- !u!212 &212056594783483590
 SpriteRenderer:
   m_ObjectHideFlags: 1

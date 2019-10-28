@@ -60,6 +60,7 @@ GameObject:
   - component: {fileID: 114186129578890420}
   - component: {fileID: 114808484832590912}
   - component: {fileID: 114470474777073728}
+  - component: {fileID: 114995989475019170}
   m_Layer: 0
   m_Name: leiyibu
   m_TagString: enemy:boss
@@ -364,6 +365,18 @@ MonoBehaviour:
   voltPrefab: {fileID: 1614783027462800, guid: cd02b8aae7ef94414a1d3049c7e0fdb8, type: 2}
   head: {fileID: 114344620674164136}
   autoStart: 0
+--- !u!114 &114995989475019170
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879739604679908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e1dc3f7b273f44afa8ac9fc9d77d4952, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scoreToIncr: 100
 --- !u!212 &212493946506567572
 SpriteRenderer:
   m_ObjectHideFlags: 1

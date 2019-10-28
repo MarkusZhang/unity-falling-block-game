@@ -19,6 +19,8 @@ public class StageFourController : MonoBehaviour {
 	
 	void Start ()
 	{	
+		print("half width: " + Camera.main.aspect * Camera.main.orthographicSize);
+		print("half height: " + Camera.main.orthographicSize);
 		var playerRef = createPlayer();
 		
 		// equip side guns

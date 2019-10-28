@@ -31,7 +31,7 @@ public class GameStart : MonoBehaviour
 
 	public void StartEasyFinalStage()
 	{
-		LifeCtrl.SetLife(12);
+		LifeCtrl.SetLife(15);
 		ScoreCtrl.AddScore(3000);
 		ScoreCtrl.currentLevel = 3;
 		ScoreCtrl.awardThresholdIdx = 2;
