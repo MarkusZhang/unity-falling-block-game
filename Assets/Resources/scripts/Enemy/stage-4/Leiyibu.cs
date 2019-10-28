@@ -293,9 +293,12 @@ public class Leiyibu : LivingEntity,IControlledAttacker
 	{
 		foreach (var lightning in lightnings)
 		{
-			var newAngle = lightning.transform.rotation.eulerAngles + deltaAngle * Vector3.forward;
-			lightning.transform.rotation = Quaternion.Euler(newAngle);
-			lightning.transform.position = getPosFromAngle(newAngle.z);
+			if (lightning.gameObject != null)
+			{
+				var newAngle = lightning.transform.rotation.eulerAngles + deltaAngle * Vector3.forward;
+				lightning.transform.rotation = Quaternion.Euler(newAngle);
+				lightning.transform.position = getPosFromAngle(newAngle.z);
+			}
 		}
 	}
 

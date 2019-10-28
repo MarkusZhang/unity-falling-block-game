@@ -41,6 +41,21 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!1 &1319371892318054
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4477699750183436}
+  m_Layer: 0
+  m_Name: right-eye
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
 --- !u!1 &1473239960555932
 GameObject:
   m_ObjectHideFlags: 0
@@ -55,9 +70,25 @@ GameObject:
   - component: {fileID: 114707655271223294}
   - component: {fileID: 114675168212703772}
   - component: {fileID: 114828360488814172}
+  - component: {fileID: 114787349973990068}
   m_Layer: 0
   m_Name: stone-head
   m_TagString: enemy:boss
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1542905208537890
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4320930756910186}
+  m_Layer: 0
+  m_Name: left-eye
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -76,6 +107,21 @@ GameObject:
   - component: {fileID: 114450630441814096}
   m_Layer: 0
   m_Name: fist-2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &1777762949936282
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 5
+  m_Component:
+  - component: {fileID: 4981156270204442}
+  m_Layer: 0
+  m_Name: front
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -100,6 +146,19 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!4 &4320930756910186
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1542905208537890}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -0.58, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4664591010740848}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4329558213541656
 Transform:
   m_ObjectHideFlags: 1
@@ -113,6 +172,19 @@ Transform:
   m_Father: {fileID: 4919014748219540}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4477699750183436
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1319371892318054}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0.1, y: 0.09, z: 0}
+  m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4664591010740848}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &4664591010740848
 Transform:
   m_ObjectHideFlags: 1
@@ -120,14 +192,17 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1473239960555932}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalPosition: {x: -4.2073684, y: 7.9016995, z: 0}
   m_LocalScale: {x: 0.6, y: 0.6, z: 1}
   m_Children:
   - {fileID: 4893878453249844}
   - {fileID: 4919014748219540}
+  - {fileID: 4981156270204442}
+  - {fileID: 4320930756910186}
+  - {fileID: 4477699750183436}
   m_Father: {fileID: 0}
   m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 21.557001}
 --- !u!4 &4755666160054012
 Transform:
   m_ObjectHideFlags: 1
@@ -147,8 +222,8 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1801609618497478}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -1.16, y: -0.42, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: -1.15, y: -0.4, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4755666160054012}
@@ -161,13 +236,26 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1708412383440938}
-  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 1.14, y: -0.41999996, z: 0}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.15, y: -0.4, z: 0}
   m_LocalScale: {x: 0.9999998, y: 0.9999998, z: 1}
   m_Children:
   - {fileID: 4329558213541656}
   m_Father: {fileID: 4664591010740848}
   m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!4 &4981156270204442
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1777762949936282}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: -3.31, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 4664591010740848}
+  m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!50 &50267251437972640
 Rigidbody2D:
@@ -345,6 +433,18 @@ MonoBehaviour:
   exceptTags: []
   tagsToDestroy: []
   destroyEffect: {fileID: 0}
+--- !u!114 &114787349973990068
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1473239960555932}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e11228f3c7749f6ad30b62bb8b9466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: boss-death
 --- !u!114 &114828360488814172
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -356,23 +456,38 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 5fb2b114dfeae4de19422acf5ff394df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  startingHealth: 10
+  startingHealth: 180
   stonePrefab: {fileID: 1594497427602116, guid: d84dd81a2f8734ca8b5504284c07dc10,
     type: 2}
-  numStones: 5
-  moveSpeed: 3
+  numStones: 6
+  moveSpeed: 4
+  leapSpeed: 10
   turnSpeed: 300
   growDir: {x: 0, y: 1}
-  leftFist: {fileID: 1708412383440938}
-  rightFist: {fileID: 1801609618497478}
-  leftMuzzle: {fileID: 4329558213541656}
-  rightMuzzle: {fileID: 4755666160054012}
+  leftFist: {fileID: 1801609618497478}
+  rightFist: {fileID: 1708412383440938}
+  leftMuzzle: {fileID: 4755666160054012}
+  rightMuzzle: {fileID: 4329558213541656}
   fistBulletPrefab: {fileID: 1908437933551098, guid: 04ad6f39c09564a6992979b12ad5b273,
     type: 2}
   fistRotateSpeed: 300
-  fistAttackInterval: 1
+  fistAttackInterval: 0.8
+  smallStonePrefab: {fileID: 1236927015678518, guid: d369a589a9f0a47fdaf65ff7b0665147,
+    type: 2}
+  spawnStoneNumber: 6
+  spawnStoneDists:
+  - 2
+  - 4
+  spawnStoneInterval: 0.1
+  forwardPos: {fileID: 4981156270204442}
   followPlayer: 1
+  followPlayerPeriodInSecs: 3
   autoStart: 0
+  blinkEffect: {fileID: 1184507770876458, guid: 1b753b4604fd74f69b764d1a064b337f,
+    type: 2}
+  eyes:
+  - {fileID: 4320930756910186}
+  - {fileID: 4477699750183436}
 --- !u!212 &212056594783483590
 SpriteRenderer:
   m_ObjectHideFlags: 1

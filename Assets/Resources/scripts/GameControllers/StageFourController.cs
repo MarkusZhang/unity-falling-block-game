@@ -70,11 +70,17 @@ public class StageFourController : MonoBehaviour {
 				
 			Destroy(subStages[subStageIdx]);
 			subStageIdx++;
-			subStages[subStageIdx].gameObject.active = true;
-			subStages[subStageIdx].StartSubStage();
 			subStages[subStageIdx].OnSubStageEnd += onSubStageEnd;
 			subStages[subStageIdx].OnSubStageBoss += onSubStageBoss;
+			StartCoroutine(delayAndStartSubStage());
 		}
+	}
+
+	IEnumerator delayAndStartSubStage()
+	{
+		yield return new WaitForSeconds(2);
+		subStages[subStageIdx].gameObject.active = true;
+		subStages[subStageIdx].StartSubStage();
 	}
 	
 	protected virtual void onPlayerDeath()
@@ -98,13 +104,8 @@ public class StageFourController : MonoBehaviour {
 			AudioManager.instance.StopSound(bgm);
 			AudioManager.instance.PlaySound(AudioStore.instance.bossStage);
 		}
-		
-		showBoss();
-	}
 
-	void showBoss()
-	{
-		//TODO
+		StartCoroutine(showBossRoutine());
 	}
 	
 	// co-routine to recreate player
@@ -131,9 +132,8 @@ public class StageFourController : MonoBehaviour {
 	
 	IEnumerator showBossRoutine()
 	{		
-		// 2. show boss above the screen
-		
 		GameObject boss = Instantiate(this.bossPrefab);
+		boss.transform.position = new Vector3(0, Utils.GetTopY() + 3f, 0);
 		boss.GetComponent<Collider2D>().enabled = false;
 
 		var bossFadeInTime = 1.5f;
@@ -162,6 +162,10 @@ public class StageFourController : MonoBehaviour {
 
 	void onBossDeath()
 	{
-		
+		// stop music
+		AudioManager.instance.StopSound(AudioStore.instance.bossStage);
+		AudioManager.instance.PlaySound(AudioStore.instance.stageClear);
+		StartCoroutine (delayAndSwitchScene ("game-win", 6));
+		Utils.ResetStaticEventListeners();
 	}
 }

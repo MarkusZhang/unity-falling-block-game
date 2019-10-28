@@ -54,6 +54,7 @@
               <e p="ShootOnDeath.cs" t="Include" />
             </e>
             <e p="MoveWithAccl.cs" t="Include" />
+            <e p="RotateFallBlock.cs" t="Include" />
             <e p="ShakeAnimation.cs" t="Include" />
             <e p="SqeExpAnimation.cs" t="Include" />
             <e p="SwingBlock.cs" t="Include" />
@@ -97,14 +98,18 @@
               <e p="SoundWave.cs" t="Include" />
             </e>
             <e p="stage-4" t="Include">
+              <e p="BlinkEye.cs" t="Include" />
               <e p="EnemyTrigger.cs" t="Include" />
               <e p="EnemyWaveTrigger.cs" t="Include" />
+              <e p="EyeBlinkEffect.cs" t="Include" />
               <e p="Fan.cs" t="Include" />
               <e p="FanBar.cs" t="Include" />
               <e p="FlowBomb.cs" t="Include" />
               <e p="FlowBombShooter.cs" t="Include" />
               <e p="FollowerStone.cs" t="Include" />
               <e p="FourWayShooter.cs" t="Include" />
+              <e p="Leiyibu.cs" t="Include" />
+              <e p="LeiyibuHead.cs" t="Include" />
               <e p="StartWaveWhenVisible.cs" t="Include" />
               <e p="StoneHead.cs" t="Include" />
             </e>
@@ -124,6 +129,7 @@
           </e>
           <e p="GameControllers" t="Include">
             <e p="AbstractGameFlowCtrl.cs" t="Include" />
+            <e p="BackgroundCtrl.cs" t="Include" />
             <e p="GameOver.cs" t="Include" />
             <e p="GameStart.cs" t="Include" />
             <e p="GameWin.cs" t="Include" />
@@ -134,6 +140,10 @@
             </e>
             <e p="RewardManager.cs" t="Include" />
             <e p="RewardSpawner.cs" t="Include" />
+            <e p="stage-4" t="Include">
+              <e p="SubStage.cs" t="Include" />
+            </e>
+            <e p="StageFourController.cs" t="Include" />
             <e p="StageIntro.cs" t="Include" />
             <e p="StageOneController.cs" t="Include" />
             <e p="StageThreeController.cs" t="Include" />
@@ -181,9 +191,9 @@
             <e p="PlayerHealthDisplay.cs" t="Include" />
             <e p="QuitConfirmDialog.cs" t="Include" />
             <e p="ScoreDisplay.cs" t="Include" />
-            <e p="ScrollBackground.cs" t="Include" />
             <e p="VolumeSlider.cs" t="Include" />
             <e p="WeaponStoreDisplay.cs" t="Include" />
+            <e p="WrapAroundBackground.cs" t="Include" />
           </e>
           <e p="Weapons" t="Include">
             <e p="BackMissle.cs" t="Include" />

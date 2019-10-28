@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class StageThreeController : AbstractGameFlowCtrl {
 
+	public GameObject[] rewardsUponBossDeath;
+	
 	// Use this for initialization
 	protected override void showBoss()
 	{
@@ -12,11 +14,18 @@ public class StageThreeController : AbstractGameFlowCtrl {
 
 	protected override void onBossDeath()
 	{
+		// generate some reward
+		if (RewardSpawner.instance != null)
+		{
+			RewardSpawner.instance.SpawnRewards(rewardsUponBossDeath);
+		}
+		
 		// stop music
 		AudioManager.instance.StopSound(AudioStore.instance.bossStage);
-		AudioManager.instance.PlaySound(AudioStore.instance.stageClear);
-		StartCoroutine (delayAndSwitchScene ("game-win", 6));
-		Utils.ResetStaticEventListeners();
+		StartCoroutine(delayAndPlayStageClear());
+		
+		// move on to next stage
+		StartCoroutine (delayAndNextStage(7));
 	}
 
 	void TempSettings()
@@ -44,6 +53,12 @@ public class StageThreeController : AbstractGameFlowCtrl {
 	{
 		base.Start();
 //		TempSettings();
+	}
+	
+	IEnumerator delayAndPlayStageClear()
+	{
+		yield return new WaitForSeconds(1f);
+		AudioManager.instance.PlaySound(AudioStore.instance.stageClear);
 	}
 	
 }

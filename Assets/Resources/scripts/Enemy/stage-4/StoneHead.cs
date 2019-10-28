@@ -1,12 +1,15 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Random = UnityEngine.Random;
 
 public class StoneHead : LivingEntity, IControlledAttacker
 {
 	public GameObject stonePrefab;
 	public int numStones;
 	public float moveSpeed;
+	public float leapSpeed = 10;
 	public float turnSpeed;
 	public Vector2 growDir; // for now, each dimension can only have value -1, 0 or 1
 
@@ -17,12 +20,34 @@ public class StoneHead : LivingEntity, IControlledAttacker
 	public GameObject fistBulletPrefab;
 	public float fistRotateSpeed;
 	public float fistAttackInterval = 1; // in seconds
+
+	// for spawn-stone attack
+	public GameObject smallStonePrefab;
+	public int spawnStoneNumber;
+	public float[] spawnStoneDists;
+	public float spawnStoneInterval;
+	public Transform forwardPos;
 	
 	public bool followPlayer; // if false, then it will move randomly
+	public float followPlayerPeriodInSecs = 2;
 	public bool autoStart;
 
 	private FollowerStone[] followers;
 	
+	// pre-attack effect
+	public GameObject blinkEffect;
+	public Transform[] eyes;
+
+	private void OnDrawGizmos()
+	{
+		foreach (var dist in spawnStoneDists)
+		{
+			var pts = getSidePoints(dist, transform.position);
+			Gizmos.DrawSphere(pts[0],0.2f);
+			Gizmos.DrawSphere(pts[1],0.2f);
+		}
+	}
+
 	// Use this for initialization
 	protected override void Start () {
 		base.Start();
@@ -41,6 +66,7 @@ public class StoneHead : LivingEntity, IControlledAttacker
 			followers[i] = stone.GetComponent<FollowerStone>();
 			leader = stone;
 		}
+		followers[0].SetSpeed(moveSpeed);
 
 		// attach listener
 		OnDeath += onDeath;
@@ -49,6 +75,59 @@ public class StoneHead : LivingEntity, IControlledAttacker
 		{
 			StartAttack();
 		}
+	}
+
+	void restoreFists()
+	{
+		leftFist.transform.localRotation = Quaternion.identity;
+		rightFist.transform.localRotation = Quaternion.identity;
+		leftFist.transform.localPosition = new Vector3(-1.15f,-0.4f,0);
+		rightFist.transform.localPosition = new Vector3(1.15f,-0.4f,0);
+	}
+	
+	void doNextAction()
+	{
+		StopCoroutine("fistAttack");
+		restoreFists();
+		
+		var dice = Random.Range(0f, 1f);
+		if (isPlayerInFront())
+		{
+			if (dice <= 0.4f)
+			{
+				// leap forward
+				StartCoroutine(leapForward());
+
+			}else if (dice < 0.8f)
+			{
+				// spawn stones
+				StartCoroutine(spawnStonesRoutine());
+			}
+			else
+			{
+				// follow player
+				StartCoroutine("fistAttack");
+				StartCoroutine(moveAroundRoutine(followPlayerPeriodInSecs));
+			}
+		}
+		else
+		{
+			// follow player
+			StartCoroutine("fistAttack");
+			StartCoroutine(moveAroundRoutine(followPlayerPeriodInSecs));
+		}
+		
+	}
+
+	bool isPlayerInFront()
+	{
+		var player = GameObject.FindGameObjectWithTag("player");
+		if (player == null)
+		{
+			return false;
+		}
+		var toPlayer = player.transform.position - transform.position;
+		return Vector3.Angle(toPlayer, -transform.up) < 30f;
 	}
 
 	Vector2 getPosDelta()
@@ -66,17 +145,60 @@ public class StoneHead : LivingEntity, IControlledAttacker
 		{
 			follower.StartFollowing();
 		}
-		StartCoroutine(moveAroundRoutine());
-		StartCoroutine(fistAttack());
+		doNextAction();
 	}
 
-	IEnumerator moveAroundRoutine()
+	void preAttack(float effectTime)
+	{
+		if (AudioManager.instance != null)
+		{
+			AudioManager.instance.PlaySound(AudioStore.instance.bossCut);
+		}
+		foreach (var eye in eyes)
+		{
+			var effect = Instantiate(blinkEffect, eye.position, Quaternion.identity);
+			effect.transform.parent = transform;
+			effect.GetComponent<EyeBlinkEffect>().effectTime = effectTime;
+		}
+	}
+	
+	IEnumerator leapForward()
+	{
+		// face player
+		var playerObj = GameObject.FindGameObjectWithTag("player");
+		if (playerObj != null)
+		{
+			var targetPos = playerObj.transform.position;
+			float xDiff = playerObj.transform.position.x - transform.position.x;
+			float yDiff = playerObj.transform.position.y - transform.position.y;
+			var targetDir = (new Vector2(xDiff,yDiff)).normalized;
+			targetDir = clampTargetDir(targetDir);
+			float targetAngle = 90+Mathf.Atan2 (targetDir.y, targetDir.x) * Mathf.Rad2Deg;
+			transform.eulerAngles = Vector3.forward * targetAngle;
+
+			preAttack(0.5f);
+			yield return new WaitForSeconds(0.5f);
+
+			followers[0].SetSpeed(leapSpeed);
+			while (transform.position != targetPos)
+			{
+				transform.position = Vector3.MoveTowards(transform.position, targetPos, Time.deltaTime * leapSpeed);
+				yield return null;
+			}
+			followers[0].SetSpeed(moveSpeed);
+		}
+		
+		doNextAction();
+	}
+
+	IEnumerator moveAroundRoutine(float timeinSecs)
 	{
 		var playerObj = GameObject.FindGameObjectWithTag("player");
 		// default to random 
 		var targetPos = Utils.GetRandomPos(-0.9f, 0.9f, -0.9f, 0.9f);
 		var targetDir = new Vector3(Random.Range(-1f,1f),Random.Range(-1f,1f),0);
-		while (true)
+		var startTime = Time.time;
+		while (Time.time - startTime < timeinSecs)
 		{
 			// follow player if player exists and followPlayer=true
 			if (followPlayer && playerObj != null)
@@ -109,6 +231,8 @@ public class StoneHead : LivingEntity, IControlledAttacker
 			
 			yield return null;
 		}
+		
+		doNextAction();
 	}
 
 	IEnumerator fistAttack()
@@ -128,14 +252,14 @@ public class StoneHead : LivingEntity, IControlledAttacker
 			}
 			while (Time.time - startTime < 0.3f)
 			{
-				t.RotateAround(transform.position,axis,fistRotateSpeed * Time.deltaTime);
+				t.RotateAround(transform.position,axis,-fistRotateSpeed * Time.deltaTime);
 				yield return null;
 			}
 
 			// fist back
 			while (Time.time - startTime < 0.6f)
 			{
-				t.RotateAround(transform.position,axis,-fistRotateSpeed * Time.deltaTime);
+				t.RotateAround(transform.position,axis,fistRotateSpeed * Time.deltaTime);
 				yield return null;
 			}
 
@@ -182,6 +306,55 @@ public class StoneHead : LivingEntity, IControlledAttacker
 		}
 		//TODO: this should not happen
 		return clampDirs[0];
+	}
+
+	IEnumerator spawnStonesRoutine()
+	{
+		// pre attack effect
+		preAttack(0.5f);
+		yield return new WaitForSeconds(0.5f);
+		leftFist.transform.localRotation = Quaternion.Euler(0,0,40);
+		rightFist.transform.localRotation = Quaternion.Euler(0,0,-40);
+		
+		// spawn stones
+		var points = new Vector3[1+2*spawnStoneDists.Length];
+		for (int i = 0; i < spawnStoneDists.Length; i++)
+		{
+			var dist = spawnStoneDists[i];
+			var sidePoints = getSidePoints(dist, transform.position);
+			points[2 * i] = sidePoints[0];
+			points[2 * i + 1] = sidePoints[1];
+		}
+		points[points.Length - 1] = transform.position;
+
+		for (int i = 0; i < spawnStoneNumber; i++)
+		{
+			spawnStones(points);
+			yield return new WaitForSeconds(spawnStoneInterval);
+		}
+		
+		yield return new WaitForSeconds(0.5f);
+		leftFist.transform.localRotation = Quaternion.Euler(0,0,0);
+		rightFist.transform.localRotation = Quaternion.Euler(0,0,00);
+		
+		doNextAction();
+	}
+
+	Vector3[] getSidePoints(float dist, Vector3 refPt)
+	{
+		var leftPos = transform.TransformPoint(Vector3.left * dist);
+		var rightPos = transform.TransformPoint(Vector3.right * dist);
+		return new Vector3[]{leftPos,rightPos};
+	}
+
+	void spawnStones(Vector3[] points)
+	{
+		foreach (var point in points)
+		{
+			var dir = point - forwardPos.position;
+			var angle = Mathf.Atan2(dir.y, dir.x) * Mathf.Rad2Deg - 90;
+			Instantiate(smallStonePrefab, point, Quaternion.Euler(Vector3.forward * angle));
+		}
 	}
 
 	void onDeath()

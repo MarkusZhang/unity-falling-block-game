@@ -31,7 +31,7 @@ public class GameStart : MonoBehaviour
 
 	public void StartEasyFinalStage()
 	{
-		LifeCtrl.SetLife(20);
+		LifeCtrl.SetLife(12);
 		ScoreCtrl.AddScore(3000);
 		ScoreCtrl.currentLevel = 3;
 		ScoreCtrl.awardThresholdIdx = 2;
@@ -39,7 +39,6 @@ public class GameStart : MonoBehaviour
 		{
 			{GunType.Default,-1},
 			{GunType.Laser,200},
-			{GunType.Lightning,20},
 			{GunType.Wide,100},
 			{GunType.Spray,500},
 			{GunType.Ring,500},

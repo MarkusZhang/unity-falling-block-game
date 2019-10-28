@@ -23,7 +23,7 @@ public class EyeBlinkEffect : MonoBehaviour
 		var scaleDelta = (maxScale - startScale) * 2 * Time.deltaTime / effectTime;
 		
 		// scale out
-		while (Time.time - startTime < effectTime/2)
+		while (Time.time - startTime < effectTime/2 && transform.localScale.x < maxScale)
 		{
 			var scale = transform.localScale.x + scaleDelta;
 			transform.localScale = new Vector3(scale,scale,1);
@@ -33,7 +33,7 @@ public class EyeBlinkEffect : MonoBehaviour
 		}
 		
 		// scale back
-		while (Time.time - startTime < effectTime)
+		while (Time.time - startTime < effectTime && transform.localScale.x > 0)
 		{
 			var scale = transform.localScale.x - scaleDelta;
 			transform.localScale = new Vector3(scale,scale,1);

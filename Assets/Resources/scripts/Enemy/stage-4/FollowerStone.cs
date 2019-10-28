@@ -11,11 +11,6 @@ public class FollowerStone : MonoBehaviour
 	public GameObject destroyEffect;
 	
 	private float distMargin = 0.1f;
-	
-	// Use this for initialization
-	void Start () {
-		
-	}
 
 	public void StartFollowing()
 	{
@@ -28,6 +23,15 @@ public class FollowerStone : MonoBehaviour
 		if (l.GetComponent<FollowerStone>() != null)
 		{
 			l.GetComponent<FollowerStone>().directFollower = this;
+		}
+	}
+
+	public void SetSpeed(float speed)
+	{
+		moveSpeed = speed;
+		if (directFollower != null)
+		{
+			directFollower.SetSpeed(speed);
 		}
 	}
 
@@ -55,6 +59,7 @@ public class FollowerStone : MonoBehaviour
 	
 	IEnumerator followLeader()
 	{
+		var head = GameObject.FindGameObjectWithTag("enemy:boss");
 		while (leader!=null)
 		{
 			var dist = Vector3.Distance(transform.position, leader.transform.position);
@@ -68,6 +73,18 @@ public class FollowerStone : MonoBehaviour
 				var targetX = 2 * transform.position.x - leader.transform.position.x;
 				var targetY = 2 * transform.position.y - leader.transform.position.y;
 				transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX,targetY,0), moveSpeed * Time.deltaTime);
+			}
+
+			if (head != null)
+			{
+				var distToHead = Vector3.Distance(transform.position, head.transform.position);
+				if (distToHead < distToLeader * (1 - distMargin))
+				{
+					// too close to head, move away
+					var targetX = 2 * transform.position.x - head.transform.position.x;
+					var targetY = 2 * transform.position.y - head.transform.position.y;
+					transform.position = Vector3.MoveTowards(transform.position, new Vector3(targetX,targetY,0), moveSpeed * Time.deltaTime);
+				}
 			}
 			yield return null;
 		}

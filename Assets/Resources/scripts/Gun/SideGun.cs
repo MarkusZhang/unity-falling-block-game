@@ -57,7 +57,7 @@ public class SideGun : MonoBehaviour
 				transform.eulerAngles = Vector3.zero;
 				transform.position = getDefaultPosition();
 			}
-			yield return new WaitForSeconds(0.2f);
+			yield return new WaitForSeconds(0.5f);
 		}
 	}
 
@@ -70,14 +70,24 @@ public class SideGun : MonoBehaviour
 		}
 	}
 	
-	GameObject getTargetEnemy(){
-		foreach (string tag in enemyTags) {
-			GameObject enemy = GameObject.FindGameObjectWithTag (tag);
-			if (enemy != null) {
-				return enemy;
+	GameObject getTargetEnemy()
+	{
+		var minDist = 100f;
+		GameObject closestEnemy = null;
+		foreach (string tag in enemyTags)
+		{
+			GameObject[] enemies = GameObject.FindGameObjectsWithTag(tag);
+			foreach (var enemy in enemies)
+			{
+				var dist = Vector3.Distance(enemy.transform.position, transform.position);
+				if (enemy != null && dist < minDist)
+				{
+					minDist = dist;
+					closestEnemy = enemy;
+				}
 			}
 		}
-		return null;
+		return closestEnemy;
 	}
 
 	Vector3 getDefaultPosition()

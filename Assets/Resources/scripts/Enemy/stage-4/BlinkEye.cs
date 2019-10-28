@@ -14,11 +14,6 @@ public class BlinkEye : MonoBehaviour
 	{
 		StartCoroutine(blink());
 	}
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
 
 	IEnumerator blink()
 	{

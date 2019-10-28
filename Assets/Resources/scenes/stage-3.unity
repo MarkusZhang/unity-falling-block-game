@@ -603,6 +603,7 @@ MonoBehaviour:
   wideBullet: {fileID: 1915164601}
   sprayBullet: {fileID: 1223150911}
   trackBullet: {fileID: 1279764671}
+  lightningBullet: {fileID: 0}
   energyBurst: {fileID: 1483028918}
   bossMassShoot: {fileID: 0}
   bossCut: {fileID: 0}
@@ -4305,6 +4306,11 @@ MonoBehaviour:
   switchBgmOnBossWave: 1
   speedUpScroll: 1
   speedUpPerWave: 1
+  rewardsUponBossDeath:
+  - {fileID: 1949935183672702, guid: 25a0f39cf76ae4bc890b364f01c646ac, type: 2}
+  - {fileID: 1590472670638126, guid: 1184577721a914aef8644718c32cc0de, type: 2}
+  - {fileID: 1727943443750944, guid: 7b34c93e87ea4410d87f27f13d23b72a, type: 2}
+  - {fileID: 1210901269087284, guid: 0c2b9db9d73ad481d8ba14c5d75a7b94, type: 2}
 --- !u!4 &1334058290
 Transform:
   m_ObjectHideFlags: 0

@@ -59,6 +59,7 @@ GameObject:
   - component: {fileID: 114740233745076890}
   - component: {fileID: 114186129578890420}
   - component: {fileID: 114808484832590912}
+  - component: {fileID: 114470474777073728}
   m_Layer: 0
   m_Name: leiyibu
   m_TagString: enemy:boss
@@ -286,6 +287,18 @@ MonoBehaviour:
   eyes:
   - {fileID: 4677374842915784}
   - {fileID: 4497836236524804}
+--- !u!114 &114470474777073728
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1879739604679908}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 02e11228f3c7749f6ad30b62bb8b9466, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  audioName: boss-death
 --- !u!114 &114740233745076890
 MonoBehaviour:
   m_ObjectHideFlags: 1
