@@ -120,6 +120,26 @@ public class GameStart : MonoBehaviour
 		SceneManager.LoadScene ("stage-intro-scene");
 	}
 
+	public void StartStageTwo()
+	{
+		LifeCtrl.SetLife(3);
+		ScoreCtrl.AddScore(600);
+		ScoreCtrl.currentLevel = 2;
+		ScoreCtrl.awardThresholdIdx = 1;
+		var gunStatus = new Dictionary<GunType, int>
+		{
+			{GunType.Default,-1},
+			{GunType.Swing,200},
+			{GunType.Burst,150},
+			{GunType.Spray,200},
+			{GunType.Wide,150},
+			{GunType.Track,50},
+		};
+		GunStore.LoadGunStoreStatus(gunStatus);
+		StageCtrl.SetStage(2);
+		SceneManager.LoadScene ("stage-intro-scene");
+	}
+
 	public void StartWarmupGame()
 	{
 		SceneManager.LoadScene ("practice-scene");
